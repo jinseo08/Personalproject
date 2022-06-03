@@ -45,6 +45,37 @@
 </body>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+    function idCheck(){
+        let memberId = document.getElementById("memberId").value;
+        let idCheckResult = document.getElementById("idCheckResult");
+        const exp = /^[a-z\d]{5,20}$/;
+        $.ajax({
+            type : "post",
+            url : "/member/idCheck",
+            data : {"memberId" : memberId}, //전송하는 파라미터
+            dataType : "text", //리턴받을 데이터 형식
+            success : function (result){
+                if(result == "ok"){
+                    if(memberId.match(exp)){
+                        idCheckResult.innerHTML = "사용 가능한 아이디 입니다.";
+                        idCheckResult.style.color = "green";
+                    }else if(memberId.length == 0){
+                        idCheckResult.innerHTML = "필수정보 입니다"
+                        idCheckResult.style.color = "red"
+                    }else {
+                        idCheckResult.innerHTML = "5~20자의 영어 소문자와 숫자만 사용가능합니다"
+                        idCheckResult.style.color = "red"
+                    }
+                }else{
+                    idCheckResult.innerHTML = "이미 사용중인 아이디 입니다.";
+                    idCheckResult.style.color = "red";
+                }
+            },
+            error : function (){
+                alert("오타 체크");
+            }
+        });
+    }
     function pw_check(){
         let pw_check = document.getElementById("pw").value;
         let result = document.getElementById("pw_check_result")

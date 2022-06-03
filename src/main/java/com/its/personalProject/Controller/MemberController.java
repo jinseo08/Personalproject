@@ -5,10 +5,7 @@ import com.its.personalProject.Service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -52,6 +49,12 @@ public class MemberController {
         }else {
             return "index";
         }
+    }
+
+    @PostMapping("/idCheck")
+    public @ResponseBody String idCheck(@RequestParam String memberId){
+        String checkResult = memberService.idCheck(memberId);
+        return checkResult;
     }
 
 

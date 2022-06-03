@@ -11,6 +11,7 @@
     <title>Index</title>
 </head>
 <body>
+<jsp:include page="./layout/header.jsp" flush="false"></jsp:include>
 <a href="/member/save">회원가입</a>
 <a href="/member/login">로그인</a>
 </body>
