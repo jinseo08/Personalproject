@@ -16,6 +16,7 @@ public class DogDTO {
     private String dogDateBirth;
     private String dogDayWeMet;
     private String dogGender;
+    private String dogGenderCk;
     private String dogProfileName;
     private String dogContents;
     private MultipartFile dogProfile;
