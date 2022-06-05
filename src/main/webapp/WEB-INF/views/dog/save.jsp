@@ -9,73 +9,107 @@
 <html>
 <head>
     <title>DogSave</title>
+    <style>
+        body{background:#fff9bd}
+        #wrap{width:800px; margin:0 auto; background:#fff; border-radius:100px; padding:50px 20px; box-sizing:border-box;}
+        #wrap div + div{padding-top:10px;}
+        #wrap .top_box{text-align:center;}
+        #wrap .top_box img{max-width:40%;}
+        #wrap .bot_box{padding-left:120px;}
+        #wrap p{display:inline-block; margin-right:10px; vertical-align:middle;width:30%; font-weight:bold; font-size:17px;}
+        #wrap input{height:50px; border-radius:25px; border:0; padding:10px 20px; box-sizing:border-box; font-size:18px; letter-spacing:-0.025em; border:1px solid #aaa; width:50%; display:inline-block; vertical-align:middle;}
+        #wrap input.w10{width:16%;}
+        #wrap input[type="radio"]{width:3%;}
+        #wrap input.center{margin-left:120px; margin-top:30px;}
+        #wrap select{height:50px; border-radius:25px; border:0; padding:10px 20px; box-sizing:border-box; font-size:18px; letter-spacing:-0.025em; border:1px solid #aaa; width:16%; display:inline-block; vertical-align:middle;}
+    </style>
 </head>
 <body>
-반려견등록
-<form action="/dog/save" method="post" enctype="multipart/form-data">
-    <p>보호자 아이디</p>
-    <input type="text" name="m_id" value="${m_id}"><br>
-    <p>반려견 이름</p>
-    <input type="text" name="dogName" placeholder="이름"><br>
-    <p>반려견 생년월일</p>
-    <input type="text" name="dogDateBirth" id="dogDateBirth"><br>
-    <input type="text" id="year1" placeholder="년" onblur="year_check()">
-    <select id ="month1" onchange="month_check()">
-        <option value ="월">월</option>
-        <option value ="1">1</option>
-        <option value ="2">2</option>
-        <option value ="3">3</option>
-        <option value ="4">4</option>
-        <option value ="5">5</option>
-        <option value ="6">6</option>
-        <option value ="7">7</option>
-        <option value ="8">8</option>
-        <option value ="9">9</option>
-        <option value ="10">10</option>
-        <option value ="11">11</option>
-        <option value ="12">12</option>
-    </select>
-    <input type="text" id="day1" placeholder="일" onblur="day_check()">
-    <div id="dateBirth_result"></div>
-
-    <p>반려견 입양날</p>
-    <input type="text" name="dogDayWeMet" id="dogDayWeMet">
-
-    <input type="text" id="year2" placeholder="년" onblur="year_check2()">
-    <select id ="month2" onchange="month_check2()">
-        <option value ="월">월</option>
-        <option value ="1">1</option>
-        <option value ="2">2</option>
-        <option value ="3">3</option>
-        <option value ="4">4</option>
-        <option value ="5">5</option>
-        <option value ="6">6</option>
-        <option value ="7">7</option>
-        <option value ="8">8</option>
-        <option value ="9">9</option>
-        <option value ="10">10</option>
-        <option value ="11">11</option>
-        <option value ="12">12</option>
-    </select>
-    <input type="text" id="day2" placeholder="일" onblur="day_check2()">
-    <div id="dateBirth_result2"></div>
-
-    <p>반려견 성별</p>
-    <lable>
-        <input type="radio" name="dogGender" value="수컷">수컷
-        <input type="radio" name="dogGender" value="암컷">암컷
-    </lable>
-    <p>중성화 유무</p>
-    <lable>
-        <input type="radio" name="dogGenderCk" value="유">유
-        <input type="radio" name="dogGenderCk" value="무">무
-    </lable>
-    <p>반려견 프로필사진</p>
-    <input type="file" name="dogProfile"><br>
-    <p>반려견 소개</p>
-    <input type="text" name="dogContents" placeholder="강아지 소개글"><br>
-    <input type="submit" value="반려견 등록">
-</form>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+<div id="wrap">
+    <div class="top_box">
+        <img src="../../../resources/img/dogpage.PNG" alt="">
+        <h1>댕댕네 입주신청서</h1>
+    </div>
+    <div class="bot_box">
+        <form action="/dog/save" method="post" enctype="multipart/form-data">
+            <div>
+                <input type="hidden" name="m_id" value="${m_id}">
+            </div>
+            <div>
+                <p>반려견 이름</p>
+                <input type="text" name="dogName" placeholder="이름">
+            </div>
+            <div>
+                <p>반려견 생년월일</p>
+                <input type="hidden" name="dogDateBirth" id="dogDateBirth">
+                <input type="text" id="year1" placeholder="년" onblur="year_check()" class="w10">
+                <select id ="month1" onchange="month_check()">
+                    <option value ="월">월</option>
+                    <option value ="1">1</option>
+                    <option value ="2">2</option>
+                    <option value ="3">3</option>
+                    <option value ="4">4</option>
+                    <option value ="5">5</option>
+                    <option value ="6">6</option>
+                    <option value ="7">7</option>
+                    <option value ="8">8</option>
+                    <option value ="9">9</option>
+                    <option value ="10">10</option>
+                    <option value ="11">11</option>
+                    <option value ="12">12</option>
+                </select>
+                <input type="text" id="day1" placeholder="일" onblur="day_check()"  class="w10">
+                <div id="dateBirth_result"></div>
+            </div>
+            <div>
+                <p>반려견 입양날</p>
+                <input type="hidden" name="dogDayWeMet" id="dogDayWeMet">
+                <input type="text" id="year2" placeholder="년" onblur="year_check2()"  class="w10">
+                <select id ="month2" onchange="month_check2()">
+                    <option value ="월">월</option>
+                    <option value ="1">1</option>
+                    <option value ="2">2</option>
+                    <option value ="3">3</option>
+                    <option value ="4">4</option>
+                    <option value ="5">5</option>
+                    <option value ="6">6</option>
+                    <option value ="7">7</option>
+                    <option value ="8">8</option>
+                    <option value ="9">9</option>
+                    <option value ="10">10</option>
+                    <option value ="11">11</option>
+                    <option value ="12">12</option>
+                </select>
+                <input type="text" id="day2" placeholder="일" onblur="day_check2()"  class="w10">
+                <div id="dateBirth_result2"></div>
+            </div>
+            <div>
+                <p>반려견 성별</p>
+                <lable>
+                    <input type="radio" name="dogGender" value="수컷">수컷
+                    <input type="radio" name="dogGender" value="암컷">암컷
+                </lable>
+            </div>
+            <div>
+                <p>중성화 유무</p>
+                <lable>
+                    <input type="radio" name="dogGenderCk" value="유">유
+                    <input type="radio" name="dogGenderCk" value="무">무
+                </lable>
+            </div>
+            <div>
+                <p>반려견 프로필사진</p>
+                <input type="file" name="dogProfile"><br>
+            </div>
+            <div>
+                <p>반려견 소개</p>
+                <input type="text" name="dogContents" placeholder="강아지 소개글"><br>
+            </div>
+            <input type="submit" value="반려견 등록" class="center">
+        </form>
+    </div>
+</div>
 </body>
 <script>
     //생년월일 정규식

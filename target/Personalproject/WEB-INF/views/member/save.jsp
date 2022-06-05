@@ -10,36 +10,59 @@
 <head>
     <title>MemberSave</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #wrap{font-size:0; letter-spacing:-4px; width:1000px; margin:0 auto;}
+        #wrap div{padding-left:15px; box-sizing:border-box;}
+        #wrap h1{text-align:center; font-size:32px; letter-spacing:-0.025em; color:#222; font-weight:bold;}
+        #wrap .left_box{display:inline-block; vertical-align:middle; width:520px; margin-right:30px; background:#fff9bd; padding:20px; box-sizing:border-box; font-size:12px; letter-spacing:-0.025em; border-radius:30px;}
+        #wrap .left_box p{font-size:18px; letter-spacing:-0.025em; color:#666; font-weight:bold; margin:0; padding:10px 0 10px 15px; box-sizing:border-box; }
+        #wrap .left_box a{font-size:18px; letter-spacing:-0.025em; color:#666; font-weight:500; margin:0; padding:10px 0; width:192px; display:inline-block; text-align:center; height:50px; line-height:50px; background:#222; padding:0; border-radius:25px; color:#fff;}
+        #wrap .left_box input{height:50px; border-radius:25px; border:0; padding:10px 20px; box-sizing:border-box; font-size:18px; letter-spacing:-0.025em; border:1px solid #aaa; width:100%;}
+        #wrap .left_box input.w50{width:49%; margin-top:10px;}
+        #wrap .left_box input.w60{width:40%;}
+        #wrap .left_box input.w100{width:100%; margin-top:10px;}
+        #wrap .left_box input.mt-10{margin-top:10px;}
+        #wrap .right_box{display:inline-block; vertical-align:middle; width:450px;}
+        #wrap .right_box img{width:100%;}
+    </style>
 </head>
 <body>
-회원가입 페이지
-<form action="/member/save" method="post">
-    <p>아이디</p>
-    <input type="text" name="memberId" placeholder="아이디" onblur="idCheck()" id="memberId"><br>
-    <div id="idCheckResult"></div>
-    <p>비밀번호</p>
-    <input type="password" name="memberPassword" id="pw" placeholder="비밀번호" onblur="pw_check()"><br>
-    <div id="pw_check_result"></div>
-    <p>비밀번호 재확인</p>
-    <input type="password" id="pw_reaffirming" onblur="pw_check2()" placeholder="비밀번호 재확인">
-    <div id="pw_reaffirming_result"></div>
-    <p>이름</p>
-    <input type="text" name="memberName" id="name" placeholder="이름" onblur="name_check()"><br>
-    <div id="name_result"></div>
-    <p>이메일</p>
-    <input type="text" name="memberEmail" id="email" placeholder="이메일" onblur="email_check()"><br>
-    <div id="email_result"></div>
-    <p>전화번호</p>
-    <input type="text" name="memberMobile" id="mobile" onblur="mobile_check()" placeholder="전화번호"><br>
-    <div id="mobile_result"></div>
-    <p>주소</p>
-    <input type="text" name ="memberPostCode"  id="sample6_postcode" placeholder="우편번호" class="wid140">
-    <a href="javascript:;" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="postal">우편번호 찾기</a>
-    <input type="text" name ="memberAddress" id="sample6_address" placeholder="주소">
-    <input type="text" name ="memberDetailAddress" id="sample6_detailAddress" placeholder="상세주소" class="wid220">
-    <input type="text" name ="memberExtraAddress" id="sample6_extraAddress" placeholder="참고항목" class="wid220">
-    <input type="submit" value="회원가입">
-</form>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+<div id="wrap">
+    <h1>회원가입 페이지</h1>
+    <div class="left_box">
+        <form action="/member/save" method="post">
+            <p>아이디</p>
+            <input type="text" name="memberId" placeholder="아이디" onblur="idCheck()" id="memberId"><br>
+            <div id="idCheckResult"></div>
+            <p>비밀번호</p>
+            <input type="password" name="memberPassword" id="pw" placeholder="비밀번호" onblur="pw_check()"><br>
+            <div id="pw_check_result"></div>
+            <p>비밀번호 재확인</p>
+            <input type="password" id="pw_reaffirming" onblur="pw_check2()" placeholder="비밀번호 재확인">
+            <div id="pw_reaffirming_result"></div>
+            <p>이름</p>
+            <input type="text" name="memberName" id="name" placeholder="이름" onblur="name_check()"><br>
+            <div id="name_result"></div>
+            <p>이메일</p>
+            <input type="text" name="memberEmail" id="email" placeholder="이메일" onblur="email_check()"><br>
+            <div id="email_result"></div>
+            <p>전화번호</p>
+            <input type="text" name="memberMobile" id="mobile" onblur="mobile_check()" placeholder="전화번호"><br>
+            <div id="mobile_result"></div>
+            <p>주소</p>
+            <input type="text" name ="memberPostCode"  id="sample6_postcode" placeholder="우편번호" class="w60">
+            <a href="javascript:;" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="postal">우편번호 찾기</a>
+            <input type="text" name ="memberAddress" id="sample6_address" placeholder="주소" class="w100">
+            <input type="text" name ="memberDetailAddress" id="sample6_detailAddress" placeholder="상세주소" class="w50">
+            <input type="text" name ="memberExtraAddress" id="sample6_extraAddress" placeholder="참고항목" class="w50">
+            <input type="submit" value="회원가입" class="mt-10">
+        </form>
+    </div>
+    <div class="right_box">
+        <img src="../../../resources/img/signupPage.jpg" alt="">
+    </div>
+</div>
 
 </body>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
