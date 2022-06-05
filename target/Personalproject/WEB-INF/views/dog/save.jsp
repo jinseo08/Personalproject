@@ -39,7 +39,27 @@
     <div id="dateBirth_result"></div>
 
     <p>반려견 입양날</p>
-    <input type="text" name="dogDayWeMet" placeholder="입양날">
+    <input type="text" name="dogDayWeMet" id="dogDayWeMet">
+
+    <input type="text" id="year2" placeholder="년" onblur="year_check2()">
+    <select id ="month2" onchange="month_check2()">
+        <option value ="월">월</option>
+        <option value ="1">1</option>
+        <option value ="2">2</option>
+        <option value ="3">3</option>
+        <option value ="4">4</option>
+        <option value ="5">5</option>
+        <option value ="6">6</option>
+        <option value ="7">7</option>
+        <option value ="8">8</option>
+        <option value ="9">9</option>
+        <option value ="10">10</option>
+        <option value ="11">11</option>
+        <option value ="12">12</option>
+    </select>
+    <input type="text" id="day2" placeholder="일" onblur="day_check2()">
+    <div id="dateBirth_result2"></div>
+
     <p>반려견 성별</p>
     <lable>
         <input type="radio" name="dogGender" value="수컷">수컷
@@ -99,6 +119,56 @@
             result.innerHTML = "";
             console.log(dogDateBirth)
             document.getElementById("dogDateBirth").value = dogDateBirth;
+            if(day_check >= 31){
+                result.innerHTML = "생년월일을 다시 확인해주세요";
+                result.style.color = "red";
+            }
+        }
+    }
+
+
+
+    function year_check2(){
+        var year_check = document.getElementById("year2").value;
+        var result = document.getElementById("dateBirth_result2");
+        var today = new Date();
+        var yearnow = today.getFullYear();
+        var exp = /^[\d]{4,4}$/;
+
+        if(year_check.length == 0){
+            result.innerHTML = "태어난 년도 4자리를 정확히 입력해주세요";
+            result.style.color = "red";
+        }else if(year_check.match(exp)){
+            result.innerHTML = "";
+            if(year_check < 1900 || year_check > yearnow){
+                result.innerHTML = "태어난 년도 4자리를 정확히 입력해주세요";
+                result.style.color = "red";
+            }
+        }
+    }
+
+    function month_check2(){
+        var month_check = document.getElementById("month2").value;
+        var result = document.getElementById("dateBirth_result2");
+        if(month_check == "월"){
+            result.innerHTML = "태어난 월을 선택해주세요";
+            result.style.color = "red";
+        }else{
+            result.innerHTML = "";
+        }
+    }
+
+    function day_check2(){
+        let day_check = document.getElementById("day2").value;
+        let result = document.getElementById("dateBirth_result2");
+        let exp = /^[\d]{2,2}$/;
+        let year2 = document.getElementById("year2").value;
+        let month2 = document.getElementById("month2").value;
+        let dogDayWeMet = String(year2)+ "-" +String(month2)+ "-" +String(day_check);
+        if(day_check.match(exp)){
+            result.innerHTML = "";
+            console.log(dogDayWeMet)
+            document.getElementById("dogDayWeMet").value = dogDayWeMet;
             if(day_check >= 31){
                 result.innerHTML = "생년월일을 다시 확인해주세요";
                 result.style.color = "red";
