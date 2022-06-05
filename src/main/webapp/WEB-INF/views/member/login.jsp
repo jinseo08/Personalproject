@@ -11,13 +11,19 @@
     <title>Login</title>
 </head>
 <body>
-로그인페이지
+<div>
+    <h1>로그인</h1>
 <form action="/member/login" method="post">
-    <p>아이디</p>
     <input type="text" name="memberId" placeholder="아이디">
-    <p>비밀번호</p>
     <input type="password" name="memberPassword" placeholder="비밀번호">
     <input type="submit" value="로그인">
 </form>
+</div>
+<div>
+    <h1 class="bmj">계정이 없으신가요?</h1>
+    <div class="center">
+        <a href="/member/save" class="login">회원가입</a>
+    </div>
+</div>
 </body>
 </html>

@@ -44,6 +44,7 @@
                 </c:when>
                 <c:when test="${!empty sessionScope.memberId}">
                     <li><a href ="/member/detail?m_id=${memberLogin.m_id}">마이페이지</a></li>
+                    <li><a href ="/dog/save?m_id=${memberLogin.m_id}">반려견 등록</a></li>
                     <li><a href ="/member/logout">로그아웃</a></li>
                     ${sessionScope.memberId}님 안녕하세요!
                 </c:when>

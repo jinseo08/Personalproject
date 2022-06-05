@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("member")
+@RequestMapping("/member")
 public class MemberController {
 
     @Autowired
