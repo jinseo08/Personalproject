@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/dog")
@@ -27,7 +28,14 @@ public class DogController {
     @PostMapping("/save")
     public String save(@ModelAttribute DogDTO dogDTO) throws IOException {
         dogService.save(dogDTO);
-        return "redirect:/";
+        return "index";
+    }
+
+    @GetMapping("/findAll")
+    public String findAll(@RequestParam Long m_id,Model model){
+        List<DogDTO> dogDTOList = dogService.findAll(m_id);
+        model.addAttribute("dogList",dogDTOList);
+        return "/dog/findAll";
     }
 
 

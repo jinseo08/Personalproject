@@ -8,4 +8,7 @@
         insert into dog_table(m_id,dogName,dogDateBirth,dogDayWeMet,dogGender,dogGenderCk,dogProfileName,dogContents)
         values(#{m_id},#{dogName},#{dogDateBirth},#{dogDayWeMet},#{dogGender},#{dogGenderCk},#{dogProfileName},#{dogContents})
     </insert>
+    <select id="findAll" parameterType="Long" resultType="dog">
+        select * from dog_table where m_id=#{m_id}
+    </select>
 </mapper>

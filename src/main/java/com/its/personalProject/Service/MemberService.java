@@ -36,4 +36,9 @@ public class MemberService {
             return "no";
         }
     }
+
+    public MemberDTO findById(Long m_id) {
+        MemberDTO memberDTO = memberRepository.findById(m_id);
+        return memberDTO;
+    }
 }

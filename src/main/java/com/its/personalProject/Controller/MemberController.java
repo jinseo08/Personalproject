@@ -45,7 +45,7 @@ public class MemberController {
             model.addAttribute("memberLogin",loginResult);
             session.setAttribute("memberId",loginResult.getMemberId());
             session.setAttribute("m_id",loginResult.getM_id());
-            return "/board/list";
+            return "redirect:/";
         }else {
             return "index";
         }
@@ -61,6 +61,14 @@ public class MemberController {
     public String logout(HttpSession session){
         session.invalidate();
         return "redirect:/";
+    }
+
+    @GetMapping("/detail")
+    public String findById(HttpSession session,Model model){
+        Long detailId = (Long) session.getAttribute("m_id");
+        MemberDTO memberDTO = memberService.findById(detailId);
+        model.addAttribute("member",memberDTO);
+        return "/member/myPage";
     }
 
 

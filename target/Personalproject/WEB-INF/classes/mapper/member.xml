@@ -14,4 +14,7 @@
     <select id="idCheck" parameterType="String" resultType="String">
         select memberId from member_table where memberId = #{memberId}
     </select>
+    <select id="findById" parameterType="Long" resultType="member">
+        select * from member_table where m_id =#{m_id}
+    </select>
 </mapper>

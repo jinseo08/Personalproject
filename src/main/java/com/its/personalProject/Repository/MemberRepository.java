@@ -25,4 +25,8 @@ public class MemberRepository {
     public String idCheck(String memberId) {
         return sql.selectOne("Member.idCheck",memberId);
     }
+
+    public MemberDTO findById(Long m_id) {
+        return sql.selectOne("Member.findById",m_id);
+    }
 }
