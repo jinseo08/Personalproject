@@ -20,4 +20,8 @@ public class DogRepository {
     public List<DogDTO> findAll(Long m_id) {
         return sql.selectList("Dog.findAll",m_id);
     }
+
+    public DogDTO findById(Long d_id) {
+        return sql.selectOne("Dog.findById",d_id);
+    }
 }

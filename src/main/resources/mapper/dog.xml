@@ -11,4 +11,7 @@
     <select id="findAll" parameterType="Long" resultType="dog">
         select * from dog_table where m_id=#{m_id}
     </select>
+    <select id="findById" parameterType="Long" resultType="dog">
+        select * from dog_table where d_id=#{d_id}
+    </select>
 </mapper>

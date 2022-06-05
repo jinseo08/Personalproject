@@ -38,5 +38,12 @@ public class DogController {
         return "/dog/findAll";
     }
 
+    @GetMapping("/detail")
+    public String findById(@RequestParam Long d_id, Model model){
+        DogDTO dogDTO = dogService.findById(d_id);
+        model.addAttribute("dog",dogDTO);
+        return "/dog/dogPage";
+    }
+
 
 }

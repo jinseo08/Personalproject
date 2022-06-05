@@ -32,4 +32,9 @@ public class DogService {
         List<DogDTO> dogDTOList = dogRepository.findAll(m_id);
         return dogDTOList;
     }
+
+    public DogDTO findById(Long d_id) {
+        DogDTO dogDTO = dogRepository.findById(d_id);
+        return dogDTO;
+    }
 }
