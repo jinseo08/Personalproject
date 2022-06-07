@@ -5,6 +5,8 @@ import com.its.personalProject.Repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MemberService {
 
@@ -40,5 +42,10 @@ public class MemberService {
     public MemberDTO findById(Long m_id) {
         MemberDTO memberDTO = memberRepository.findById(m_id);
         return memberDTO;
+    }
+
+    public List<MemberDTO> findAll() {
+        List<MemberDTO> memberDTOList = memberRepository.findAll();
+        return memberDTOList;
     }
 }

@@ -20,18 +20,19 @@
     a:link{color:inherit; text-decoration:none;}
     a:hover{color:inherit; text-decoration:none;}
     a:visited{color:inherit; text-decoration:none;}
-    #header{position:relative; widtH:100%; height:100px; background: rgb(255, 249, 190); }
+    #header{position:relative; widtH:100%; height:120px; background: rgb(255, 249, 190); }
     #header .home{position:absolute; left:20px; top:50%; transform:translateY(-50%);}
-    #header .home a{font-size:24px; letter-spacing:-0.025em; color: rgb(165, 61, 183); line-height:100px; font-weight:bold; display:inline-block;}
+    #header .home a{width:100px;}
+    #header .home a img{width:100%;}
     #header .gnb{text-align:center;}
     #header .gnb ul li{margin-right:20px; display:inline-block}
-    #header .gnb ul li a{font-size:24px; letter-spacing:-0.025em; color: rgb(165, 61, 183); line-height:100px; font-weight:bold; display:block;}
+    #header .gnb ul li a{font-size:24px; letter-spacing:-0.025em; color: #222222; line-height:120px; font-weight:bold; display:block;}
 </style>
 </head>
 <body>
 <div id="header">
     <div class="home">
-        <a href="/">HOME</a>
+        <a href="/"><img src="../../../resources/img/logo7.jpg" alt=""></a>
     </div>
     <div class="gnb">
         <ul>
