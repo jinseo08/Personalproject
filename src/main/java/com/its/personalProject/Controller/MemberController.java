@@ -64,6 +64,7 @@ public class MemberController {
         return "redirect:/";
     }
 
+    // 마이페이지 이동(상세조회) - 세션 이용
     @GetMapping("/detail")
     public String findById(HttpSession session,Model model){
         Long detailId = (Long) session.getAttribute("m_id");
@@ -71,6 +72,15 @@ public class MemberController {
         model.addAttribute("member",memberDTO);
         return "/member/myPage";
     }
+
+    //관리자용 회원 상세조회
+    @GetMapping("/detailAdmin")
+    public String findByIdAdmin(@RequestParam Long m_id, Model model){
+        MemberDTO memberDTO = memberService.findById(m_id);
+        model.addAttribute("member",memberDTO);
+        return "/member/myPage";
+    }
+
 
     @GetMapping("/findAll")
     public String findAll(Model model){
