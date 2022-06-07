@@ -48,4 +48,8 @@ public class MemberService {
         List<MemberDTO> memberDTOList = memberRepository.findAll();
         return memberDTOList;
     }
+
+    public void delete(Long m_id) {
+        memberRepository.delete(m_id);
+    }
 }

@@ -89,4 +89,10 @@ public class MemberController {
         return "admin/memberList";
     }
 
+    @GetMapping("/delete")
+    public String delete(@RequestParam Long m_id){
+        memberService.delete(m_id);
+        return "redirect:/member/findAll";
+    }
+
 }
