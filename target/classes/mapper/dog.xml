@@ -14,4 +14,7 @@
     <select id="findById" parameterType="Long" resultType="dog">
         select * from dog_table where d_id=#{d_id}
     </select>
+    <delete id="delete" parameterType="Long">
+        delete from dog_table where d_id=#{d_id}
+    </delete>
 </mapper>

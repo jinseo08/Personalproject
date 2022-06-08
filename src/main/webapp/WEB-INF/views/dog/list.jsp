@@ -17,6 +17,8 @@
     회원번호 ${dog.m_id} <br>
     반려견 번호 ${dog.d_id} <br>
     반려견 이름 <a href="/dog/detail?d_id=${dog.d_id}">${dog.dogName}</a><br>
+<%--    반려견 삭제 <a href="/dog/delete?d_id=${dog.d_id}?m_id=${dog.m_id}">삭제</a><br>--%>
+    반려견 삭제 <a href="/dog/delete?d_id=${dog.d_id}">삭제</a><br>
 </c:forEach>
 </body>
 </html>

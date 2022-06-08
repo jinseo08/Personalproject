@@ -37,4 +37,10 @@ public class DogService {
         DogDTO dogDTO = dogRepository.findById(d_id);
         return dogDTO;
     }
+
+    public void delete(Long d_id) {
+        dogRepository.delete(d_id);
+    }
+
+
 }

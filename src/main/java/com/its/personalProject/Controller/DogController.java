@@ -31,12 +31,14 @@ public class DogController {
         return "index";
     }
 
+    // 마이페이지에서 반려견 목록
     @GetMapping("/findAll")
     public String findAll(@RequestParam Long m_id,Model model){
         List<DogDTO> dogDTOList = dogService.findAll(m_id);
         model.addAttribute("dogList",dogDTOList);
-        return "/dog/findAll";
+        return "/dog/list";
     }
+
 
     @GetMapping("/detail")
     public String findById(@RequestParam Long d_id, Model model){
@@ -45,5 +47,12 @@ public class DogController {
         return "/dog/dogPage";
     }
 
+    @GetMapping("/delete")
+    public String delete(@RequestParam Long d_id, Model model){
+        dogService.delete(d_id);
+        List<DogDTO> dogDTOList = dogService.findAll(d_id);
+        model.addAttribute("dog",dogDTOList);
+        return "redirect:/member/detail";
+    }
 
 }

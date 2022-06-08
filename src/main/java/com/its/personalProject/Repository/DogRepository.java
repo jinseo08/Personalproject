@@ -24,4 +24,10 @@ public class DogRepository {
     public DogDTO findById(Long d_id) {
         return sql.selectOne("Dog.findById",d_id);
     }
+
+    public void delete(Long d_id) {
+        sql.delete("Dog.delete",d_id);
+    }
+
+
 }

@@ -32,7 +32,7 @@
 <body>
 <div id="header">
     <div class="home">
-        <a href="/"><img src="../../../resources/img/logo7.jpg" alt=""></a>
+        <a href="/"><img src="../../../resources/img/logo8.jpg" alt=""></a>
     </div>
     <div class="gnb">
         <ul>
