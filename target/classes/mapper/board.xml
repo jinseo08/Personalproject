@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Board">
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="board">
+        select * from board_table order by b_id desc limit #{start}, #{limit}
+    </select>
+    <select id="count" resultType="int">
+        select count(b_id) from board_table
+    </select>
+    <insert id="save" parameterType="board">
+        insert into board_table(m_id,boardTitle,memberId,boardContents,boardCreatedDate,dogName,boardFileName)
+        values(#{m_id},#{boardTitle},#{memberId},#{boardContents},now(),#{dogName},#{boardFileName})
+    </insert>
+</mapper>

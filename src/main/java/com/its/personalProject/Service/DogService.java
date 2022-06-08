@@ -42,5 +42,4 @@ public class DogService {
         dogRepository.delete(d_id);
     }
 
-
 }

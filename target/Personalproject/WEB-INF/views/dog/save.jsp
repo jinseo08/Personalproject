@@ -59,7 +59,40 @@
                     <option value ="11">11</option>
                     <option value ="12">12</option>
                 </select>
-                <input type="text" id="day1" placeholder="일" onblur="day_check()"  class="w10">
+                <select name="day" id="day1" onchange="day_check()" class="w10">
+                    <option value="일">일</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
                 <div id="dateBirth_result"></div>
             </div>
             <div>
@@ -81,7 +114,40 @@
                     <option value ="11">11</option>
                     <option value ="12">12</option>
                 </select>
-                <input type="text" id="day2" placeholder="일" onblur="day_check2()"  class="w10">
+                <select name="day" id="day2" onchange="day_check2()" class="w10">
+                    <option value="일">일</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
                 <div id="dateBirth_result2"></div>
             </div>
             <div>
@@ -145,19 +211,17 @@
 
     function day_check(){
         let day_check = document.getElementById("day1").value;
-        let result = document.getElementById("dateBirth_result");
-        let exp = /^[\d]{2,2}$/;
         let year1 = document.getElementById("year1").value;
         let month1 = document.getElementById("month1").value;
+        let result = document.getElementById("dateBirth_result");
         let dogDateBirth = String(year1)+ "-" +String(month1)+ "-" +String(day_check);
-        if(day_check.match(exp)){
-            result.innerHTML = "";
-            console.log(dogDateBirth)
+        if(day_check == "일"){
+            result.innerHTML = "태어난 일을 선택해주세요";
+            result.style.color = "red";
+        }else {
+            console.log("태어난날"+dogDateBirth)
             document.getElementById("dogDateBirth").value = dogDateBirth;
-            if(day_check >= 31){
-                result.innerHTML = "생년월일을 다시 확인해주세요";
-                result.style.color = "red";
-            }
+            result.innerHTML = "";
         }
     }
 
@@ -168,14 +232,13 @@
         let today = new Date();
         let yearnow = today.getFullYear();
         let exp = /^[\d]{4,4}$/;
-
         if(year_check.length == 0){
-            result.innerHTML = "태어난 년도 4자리를 정확히 입력해주세요";
+            result.innerHTML = "입양한 년도 4자리를 정확히 입력해주세요";
             result.style.color = "red";
         }else if(year_check.match(exp)){
             result.innerHTML = "";
             if(year_check < 1900 || year_check > yearnow){
-                result.innerHTML = "태어난 년도 4자리를 정확히 입력해주세요";
+                result.innerHTML = "입양한 년도 4자리를 정확히 입력해주세요";
                 result.style.color = "red";
             }
         }
@@ -185,7 +248,7 @@
         let month_check = document.getElementById("month2").value;
         let result = document.getElementById("dateBirth_result2");
         if(month_check == "월"){
-            result.innerHTML = "태어난 월을 선택해주세요";
+            result.innerHTML = "입양한 월을 선택해주세요";
             result.style.color = "red";
         }else{
             result.innerHTML = "";
@@ -194,19 +257,17 @@
 
     function day_check2(){
         let day_check = document.getElementById("day2").value;
-        let result = document.getElementById("dateBirth_result2");
-        let exp = /^[\d]{2,2}$/;
         let year2 = document.getElementById("year2").value;
         let month2 = document.getElementById("month2").value;
+        let result = document.getElementById("dateBirth_result2");
         let dogDayWeMet = String(year2)+ "-" +String(month2)+ "-" +String(day_check);
-        if(day_check.match(exp)){
-            result.innerHTML = "";
-            console.log(dogDayWeMet)
+        if(day_check == "일"){
+            result.innerHTML = "입양한 일을 선택해주세요";
+            result.style.color = "red";
+        }else {
+            console.log("입양한날"+dogDayWeMet)
             document.getElementById("dogDayWeMet").value = dogDayWeMet;
-            if(day_check >= 31){
-                result.innerHTML = "생년월일을 다시 확인해주세요";
-                result.style.color = "red";
-            }
+            result.innerHTML = "";
         }
     }
 </script>
