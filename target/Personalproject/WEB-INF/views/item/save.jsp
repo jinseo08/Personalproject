@@ -12,7 +12,7 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-<form action="/item/save" method="post" enctype="multipart/form-data">
+<form action="/item/save" method="post" enctype="multipart/form-data" name="formSubmit">
     <p>상품이름</p>
     <input type="text" name="itemName" placeholder="상품이름">
     <p>상품가격</p>
@@ -24,7 +24,7 @@
         <option value="간식">간식</option>
         <option value="장난감">장난감</option>
     </select>
-    <div id="categoryResult"></div>
+    <div id="categoryResult" style="color: red">카레고리를 선택해주세요</div>
     <p>상품간단소개</p>
     <input type="text" name="itemTitle" placeholder="상품간단소개">
     <p>상품상세내용</p>
@@ -38,8 +38,8 @@
         <option value="품절">품절</option>
         <option value="판매종료">판매종료</option>
     </select>
-    <div id="statusResult"></div>
-    <input type="submit" value="상품등록">
+    <div id="statusResult" style="color:red;">상품상태를 선택해주세요</div>
+    <input type="button" value="상품등록" onclick="submitResult()">
 </form>
 </body>
 <script>
@@ -62,6 +62,19 @@ function status1(){
     }else {
         result.innerHTML="";
     }
+}
+
+function submitResult(){
+    let category = document.getElementById("category").value;
+    let status = document.getElementById("status").value;
+    if(category == "카테고리"){
+        alert("카테고리를 선택해주세요")
+    }else if(status =="상품상태"){
+        alert("상품상태를 선택해주세요")
+    }else {
+        formSubmit.submit();
+    }
+
 }
 
 

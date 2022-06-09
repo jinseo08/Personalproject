@@ -7,5 +7,7 @@
         insert into item_table(itemName,itemPrice,itemCategory,itemTitle,itemContents,itemThumbnailName,itemStatus)
         values(#{itemName},#{itemPrice},#{itemCategory},#{itemTitle},#{itemContents},#{itemThumbnailName},#{itemStatus})
     </insert>
-
+    <select id="findAll" resultType="item">
+        select * from item_table
+    </select>
 </mapper>
