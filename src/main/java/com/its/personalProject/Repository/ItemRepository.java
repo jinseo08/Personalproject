@@ -21,4 +21,8 @@ public class ItemRepository {
     public List<ItemDTO> findAll() {
         return sql.selectList("Item.findAll");
     }
+
+    public ItemDTO findById(Long i_id) {
+        return sql.selectOne("Item.findById",i_id);
+    }
 }

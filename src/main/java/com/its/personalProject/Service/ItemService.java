@@ -32,4 +32,9 @@ public class ItemService {
         List<ItemDTO> itemDTOList = itemRepository.findAll();
         return itemDTOList;
     }
+
+    public ItemDTO findById(Long i_id) {
+        ItemDTO itemDTO = itemRepository.findById(i_id);
+        return itemDTO;
+    }
 }

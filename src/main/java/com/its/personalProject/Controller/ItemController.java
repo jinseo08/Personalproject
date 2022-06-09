@@ -32,11 +32,13 @@ public class ItemController {
     @PostMapping("/save")
     public String save(@ModelAttribute ItemDTO itemDTO) throws IOException {
         itemService.save(itemDTO);
-        return "/item/list";
+        return "redirect:/item/findAll";
     }
 
     @GetMapping("/detail")
-    public String findById(@RequestParam Long i_id){
+    public String findById(@RequestParam Long i_id,Model model){
+        ItemDTO itemDTO = itemService.findById(i_id);
+        model.addAttribute("itemDetail",itemDTO);
         return "/item/detail";
     }
 

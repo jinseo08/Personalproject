@@ -17,7 +17,7 @@
 <a href="/item/save">글작성</a>
 <c:forEach var="item" items="${itemList}">
     <input type="hidden" value="${item.i_id}">
-    상품이름 ${item.itemName}<br>
+    상품이름 <a href="/item/detail?i_id=${item.i_id}">${item.itemName}</a><br>
     상품가격 ${item.itemPrice}<br>
     상품카테고리 ${item.itemCategory}<br>
     상품간단설명 ${item.itemTitle}<br>
