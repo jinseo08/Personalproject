@@ -37,4 +37,8 @@ public class ItemService {
         ItemDTO itemDTO = itemRepository.findById(i_id);
         return itemDTO;
     }
+
+    public void delete(Long i_id) {
+        itemRepository.delete(i_id);
+    }
 }

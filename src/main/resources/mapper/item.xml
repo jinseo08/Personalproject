@@ -13,4 +13,7 @@
     <select id="findById" parameterType="Long" resultType="item">
         select * from item_table where i_id=${i_id}
     </select>
+    <delete id="delete" parameterType="Long">
+        delete from item_table where i_id=${i_id}
+    </delete>
 </mapper>

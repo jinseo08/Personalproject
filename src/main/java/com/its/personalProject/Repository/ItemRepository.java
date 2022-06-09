@@ -25,4 +25,8 @@ public class ItemRepository {
     public ItemDTO findById(Long i_id) {
         return sql.selectOne("Item.findById",i_id);
     }
+
+    public void delete(Long i_id) {
+        sql.delete("Item.delete",i_id);
+    }
 }
