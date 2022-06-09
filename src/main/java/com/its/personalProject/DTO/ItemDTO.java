@@ -3,6 +3,7 @@ package com.its.personalProject.DTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 @AllArgsConstructor
@@ -17,6 +18,6 @@ public class ItemDTO {
     private String itemContents;
     private String itemThumbnailName;
     private String itemStatus;
-
+    private MultipartFile itemThumbnail;
 
 }

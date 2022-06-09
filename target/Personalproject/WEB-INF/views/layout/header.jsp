@@ -37,6 +37,7 @@
     <div class="gnb">
         <ul>
             <li><a href="/board/paging">글목록</a></li>
+            <li><a href="/item/findAll">상품목록</a></li>
             <c:choose>
                 <c:when test="${sessionScope.memberId eq 'admin'}">
                     <li><a href ="/member/findAll">회원목록</a></li>
