@@ -25,4 +25,9 @@ public class BoardRepository {
     public void save(BoardDTO boardDTO) {
         sql.insert("Board.save",boardDTO);
     }
+
+    public BoardDTO findById(Long b_id) {
+        sql.update("Board.boardHits",b_id);
+        return sql.selectOne("Board.findById",b_id);
+    }
 }

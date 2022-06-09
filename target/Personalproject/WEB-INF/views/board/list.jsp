@@ -25,6 +25,7 @@
         <th>이미지</th>
         <th>조회수</th>
         <th>작성시간</th>
+        <th>수정시간</th>
     </tr>
 
     <c:forEach var="board" items="${boardList}">
@@ -37,6 +38,7 @@
             <td><img src="${pageContext.request.contextPath}/upload/${board.boardFileName}" alt="이미지가없습니다" height="100" width="100"></td>
             <td>${board.boardHits}</td>
             <td>${board.boardCreatedDate}</td>
+            <td>${board.boardUpdateDate}</td>
         </tr>
     </c:forEach>
 </table>

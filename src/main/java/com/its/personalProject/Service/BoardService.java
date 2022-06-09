@@ -5,7 +5,10 @@ import com.its.personalProject.DTO.PageDTO;
 import com.its.personalProject.Repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +51,23 @@ public class BoardService {
     }
 
 
-    public void save(BoardDTO boardDTO) {
+    public void save(BoardDTO boardDTO) throws IOException {
+
+        MultipartFile boardFile = boardDTO.getBoardFile();
+        String boardFileName = boardFile.getOriginalFilename();
+        boardFileName = System.currentTimeMillis() + "-" + boardFileName;
+        boardDTO.setBoardFileName(boardFileName);
+        String savePath = "C:\\spring_img\\" + boardFileName;
+        if(!boardFile.isEmpty()){
+            boardFile.transferTo(new File(savePath));
+        }
+
+
         boardRepository.save(boardDTO);
+    }
+
+    public BoardDTO findById(Long b_id) {
+        BoardDTO boardDTO = boardRepository.findById(b_id);
+        return boardDTO;
     }
 }

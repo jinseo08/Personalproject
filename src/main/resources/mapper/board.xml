@@ -14,4 +14,10 @@
         insert into board_table(m_id,boardTitle,memberId,boardContents,boardCreatedDate,dogName,boardFileName)
         values(#{m_id},#{boardTitle},#{memberId},#{boardContents},now(),#{dogName},#{boardFileName})
     </insert>
+    <select id="findById" parameterType="Long" resultType="board">
+        select * from board_table where b_id=#{b_id}
+    </select>
+    <update id="boardHits" parameterType="Long">
+        update board_table set boardHits= boardHits + 1 where b_id =#{b_id}
+    </update>
 </mapper>

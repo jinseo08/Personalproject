@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -44,9 +45,16 @@ public class BoardController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute BoardDTO boardDTO){
+    public String save(@ModelAttribute BoardDTO boardDTO) throws IOException {
         boardService.save(boardDTO);
         return "redirect:/board/paging";
+    }
+
+    @GetMapping("/detail")
+    public String findById(@RequestParam Long b_id,Model model){
+        BoardDTO boardDTO = boardService.findById(b_id);
+        model.addAttribute("boardDetail",boardDTO);
+        return "/board/detail";
     }
 
 
