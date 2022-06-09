@@ -1,9 +1,11 @@
 package com.its.personalProject.Controller;
 
 import com.its.personalProject.DTO.BoardDTO;
+import com.its.personalProject.DTO.CommentDTO;
 import com.its.personalProject.DTO.DogDTO;
 import com.its.personalProject.DTO.PageDTO;
 import com.its.personalProject.Service.BoardService;
+import com.its.personalProject.Service.CommentService;
 import com.its.personalProject.Service.DogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,9 @@ public class BoardController {
 
     @Autowired
     private DogService dogService;
+
+    @Autowired
+    private CommentService commentService;
 
 
     @GetMapping("/paging")
@@ -54,6 +59,8 @@ public class BoardController {
     public String findById(@RequestParam Long b_id,Model model){
         BoardDTO boardDTO = boardService.findById(b_id);
         model.addAttribute("boardDetail",boardDTO);
+        List<CommentDTO> commentDTOList = commentService.findAll(b_id);
+        model.addAttribute("commentList",commentDTOList);
         return "/board/detail";
     }
 

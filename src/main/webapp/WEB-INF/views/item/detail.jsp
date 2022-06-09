@@ -13,6 +13,14 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 ${itemDetail}
-<a href="/item/delete?i_id=${itemDetail.i_id}">글삭제</a>
+<a href="#" onclick="deleteCk()">글삭제</a>
 </body>
+<script>
+    function deleteCk(){
+        result = confirm("삭제하시겠습니까?")
+        if(result == true){
+            location.href = "/item/delete?i_id=${itemDetail.i_id}"
+        }
+    }
+</script>
 </html>

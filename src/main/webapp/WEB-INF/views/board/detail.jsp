@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>BoardDetail</title>
@@ -84,5 +85,92 @@
         </tr>
         </tbody>
     </table>
+<div class=" write_custom">
+    <div>
+        <input type="text" id="memberId" placeholder="로그인을 해주세요" value="${sessionScope.memberId}" class="block">
+        <div class="area">
+            <textarea rows="4" cols="" id="commentContents" placeholder="내용" class="inline_bottom"></textarea>
+        </div>
+        <div class="button_box">
+            <input type="submit" value="댓글작성" onclick="commentSubmit()" class="inline_bottom">
+        </div>
+    </div>
+    <div id="comment-write">
+        <div class="text_box">
+            <c:forEach items="${commentList}" var="comment">
+                <div class="box">
+                    <div class="right_box">
+                        <p>
+                                ${comment.memberId}
+                        </p>
+                        <span>
+                                ${comment.commentCreatedDate}
+                        </span>
+                    </div>
+                    <p class="desc">
+                            ${comment.commentContents}
+                    </p>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+</div>
+<c:choose>
+    <c:when test="${sessionScope.memberId == boardDetail.memberId}">
+        <li><a href ="/board/update?b_id=${boardDetail.b_id}">글수정</a></li>
+        <li><a href ="/board/delete?b_id=${boardDetail.b_id}">글삭제</a></li>
+    </c:when>
+    <c:when test="${sessionScope.memberId eq 'admin'}">
+        <li><a href ="/board/delete?b_id=${boardDetail.b_id}">글삭제(관리자버전)</a></li>
+    </c:when>
+    <c:when test="${!empty sessionScope.memberId}">
+        <li>본인의 글만 수정 및 삭제 할 수 있습니다!</li>
+    </c:when>
+    <c:otherwise>
+        <h3>로그인 후 수정 및 삭제 할 수 있습니다!</h3>
+    </c:otherwise>
+</c:choose>
+</div>
 </body>
+<script>
+    function paging(){
+        location.href = "/board/paging?page=${page}"; // 직전에 있었던 페이지 값을 컨트롤러로 요청
+    }
+
+    function commentSubmit(){
+        let memberId = document.getElementById("memberId").value;
+        let commentContents = document.getElementById("commentContents").value;
+        let b_id = ${boardDetail.b_id};
+        $.ajax({
+            type : "post",
+            url : "/comment/save",
+            data: {
+                "memberId" : memberId,
+                "commentContents" : commentContents,
+                "b_id" : b_id
+            },
+            dataType : "json",
+            success : function (result){
+                let output = "<div class='text_box'>";
+                for (let i in result) {
+                    output += "<div class='box'>";
+                    output += "<div class='right_box'>";
+                    output += "<p>" + result[i].memberId + "</p>";
+                    output += "<span>" + result[i].commentCreatedDate + "</span>";
+                    output += "</div>"
+                    output += "<p class='desc'>" + result[i].commentContents + "</p>";
+                    output += "</div>";
+                }
+                output += "</div>";
+                document.getElementById('comment-write').innerHTML = output;
+                document.getElementById('memberId').value='${sessionScope.memberId}';
+                document.getElementById('commentContents').value='';
+
+            },
+            error : function (){
+                alert("ajax 오류")
+            }
+        })
+    }
+</script>
 </html>
