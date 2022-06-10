@@ -7,5 +7,6 @@
         <typeAlias type="com.its.personalProject.DTO.DogDTO" alias="dog" />
         <typeAlias type="com.its.personalProject.DTO.BoardDTO" alias="board" />
         <typeAlias type="com.its.personalProject.DTO.ItemDTO" alias="item" />
+        <typeAlias type="com.its.personalProject.DTO.CommentDTO" alias="comment" />
     </typeAliases>
 </configuration>
