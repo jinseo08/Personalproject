@@ -64,5 +64,11 @@ public class BoardController {
         return "/board/detail";
     }
 
+    @GetMapping("/delete")
+    public String delete(@RequestParam Long b_id){
+        boardService.delete(b_id);
+        return "redirect:/board/detail";
+    }
+
 
 }

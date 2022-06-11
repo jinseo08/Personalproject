@@ -32,7 +32,7 @@
 <body>
 <div id="header">
     <div class="home">
-        <a href="/"><img src="../../../resources/img/logo8.jpg" alt=""></a>
+        <a href="/"><img src="../../../resources/img/logo7.jpg" alt="" height="90px"></a>
     </div>
     <div class="gnb">
         <ul>
@@ -45,13 +45,18 @@
                     관리자님 안녕하세요!
                 </c:when>
                 <c:when test="${!empty sessionScope.memberId}">
-                    <li><a href ="/member/detail?m_id=${memberLogin.m_id}">마이페이지</a></li>
-                    <li><a href ="/dog/save?m_id=${memberLogin.m_id}">반려견 등록</a></li>
-                    <li><a href ="/member/logout">로그아웃</a></li>
+                    <li><a href="/member/detail?m_id=${memberLogin.m_id}"><img src="../../../resources/img/mypage2.jpg" alt="" height="70px" width="70px"></a></li>
+                    <li><a href="/dog/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/mypet4.jpg" alt="" height="70px" width="70px"></a></li>
+                    <li><a href="/dog/save?m_id=${memberLogin.m_id}"><img src="../../../resources/img/petSignup.jpg" alt="" height="70px" width="70px"></a></li>
+                    <li><a href="#"><img src="../../../resources/img/cart.png" alt="" height="70px" width="70px"></a></li>
+                    <li><a href="#"><img src="../../../resources/img/order2.jpg" alt="" height="70px" width="70px"></a></li>
+                    <li><a href="/member/logout"><img src="../../../resources/img/logout.jpg" alt="" height="70px" width="70px"></a></li>
                     ${sessionScope.memberId}님 안녕하세요!
                 </c:when>
                 <c:otherwise>
                     <li><a href="/member/save">회원가입</a></li>
+                    <li><a href="/member/save"><img src="../../../resources/img/signup.jpg" alt="" height="40px" width="40px"></a></li>
+                    <li><a href="/member/login"><img src="../../../resources/img/login.jpg" alt="" height="40px" width="40px"></a></li>
                     <li><a href="/member/login">로그인</a></li>
                 </c:otherwise>
             </c:choose>

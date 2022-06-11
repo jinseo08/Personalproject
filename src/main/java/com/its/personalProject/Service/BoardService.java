@@ -70,4 +70,8 @@ public class BoardService {
         BoardDTO boardDTO = boardRepository.findById(b_id);
         return boardDTO;
     }
+
+    public void delete(Long b_id) {
+        boardRepository.delete(b_id);
+    }
 }
