@@ -67,7 +67,7 @@ public class BoardController {
     @GetMapping("/delete")
     public String delete(@RequestParam Long b_id){
         boardService.delete(b_id);
-        return "redirect:/board/detail";
+        return "redirect:/board/paging";
     }
 
 

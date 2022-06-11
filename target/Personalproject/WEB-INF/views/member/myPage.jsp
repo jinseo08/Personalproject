@@ -14,6 +14,5 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 마이페이지
 ${member}
-<a href="/dog/findAll?m_id=${member.m_id}">반려견 조회</a>
 </body>
 </html>

@@ -118,7 +118,7 @@
 <c:choose>
     <c:when test="${sessionScope.memberId == boardDetail.memberId}">
         <li><a href ="/board/update?b_id=${boardDetail.b_id}">글수정</a></li>
-        <li><a href ="/board/delete?b_id=${boardDetail.b_id}">글삭제</a></li>
+        <li><a href ="#" onclick="deleteCk()">글삭제</a></li>
     </c:when>
     <c:when test="${sessionScope.memberId eq 'admin'}">
         <li><a href ="/board/delete?b_id=${boardDetail.b_id}">글삭제(관리자버전)</a></li>
@@ -171,6 +171,13 @@
                 alert("ajax 오류")
             }
         })
+    }
+
+    function deleteCk(){
+        result = confirm("삭제하시겠습니까?")
+        if(result == true){
+            location.href = "/board/delete?b_id=${boardDetail.b_id}"
+        }
     }
 </script>
 </html>
