@@ -55,8 +55,8 @@
                 </c:when>
                 <c:otherwise>
                     <li><a href="/member/save">회원가입</a></li>
-                    <li><a href="/member/save"><img src="../../../resources/img/signup.jpg" alt="" height="40px" width="40px"></a></li>
-                    <li><a href="/member/login"><img src="../../../resources/img/login.jpg" alt="" height="40px" width="40px"></a></li>
+                    <li><a href="/member/save"><img src="../../../resources/img/signup.jpg" alt="" height="50px" width="50px"></a></li>
+                    <li><a href="/member/login"><img src="../../../resources/img/login.jpg" alt="" height="50px" width="50px"></a></li>
                     <li><a href="/member/login">로그인</a></li>
                 </c:otherwise>
             </c:choose>
