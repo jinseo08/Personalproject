@@ -8,7 +8,7 @@
         insert into shopping_cart_table(m_id,i_id,itemQTY)
         values(#{m_id},#{i_id},#{itemQTY})
     </insert>
-    <select id="findAll" resultType="cart">
-        select * from shopping_cart_table where m_id=${m_id}
+    <select id="findAll" resultType="cartItem">
+        select * from shopping_cart_table,item_table where shopping_cart_table.i_id=item_table.i_id and shopping_cart_table.m_id=#{m_id}
     </select>
 </mapper>

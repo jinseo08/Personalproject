@@ -9,5 +9,6 @@
         <typeAlias type="com.its.personalProject.DTO.ItemDTO" alias="item" />
         <typeAlias type="com.its.personalProject.DTO.CommentDTO" alias="comment" />
         <typeAlias type="com.its.personalProject.DTO.CartDTO" alias="cart" />
+        <typeAlias type="com.its.personalProject.DTO.CartItemDTO" alias="cartItem" />
     </typeAliases>
 </configuration>

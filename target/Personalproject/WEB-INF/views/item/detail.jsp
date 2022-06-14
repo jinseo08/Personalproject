@@ -12,8 +12,27 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-${itemDetail}
+${itemDetail}<br>
 <a href="#" onclick="deleteCk()">글삭제</a>
+<form action="/cart/save" method="get" name="cartSubmit">
+<input type="hidden" name="i_id" value="${itemDetail.i_id}">
+<input type="hidden" name="m_id" value="${sessionScope.m_id}">
+<p>수량</p>
+<select name="itemQTY">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>개
+<br>
+<a href="#" onclick="cartSave()">장바구니 담기</a>
+</form>
 </body>
 <script>
     function deleteCk(){
@@ -22,5 +41,13 @@ ${itemDetail}
             location.href = "/item/delete?i_id=${itemDetail.i_id}"
         }
     }
+
+    function cartSave(){
+        cartResult = confirm("장바구니에 담으시겠습니까?");
+        if(cartResult == true){
+                cartSubmit.submit();
+            }
+    }
+
 </script>
 </html>

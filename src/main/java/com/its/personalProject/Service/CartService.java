@@ -1,6 +1,7 @@
 package com.its.personalProject.Service;
 
 import com.its.personalProject.DTO.CartDTO;
+import com.its.personalProject.DTO.CartItemDTO;
 import com.its.personalProject.Repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ public class CartService {
         cartRepository.save(cartDTO);
     }
 
-    public List<CartDTO> findAll(Long m_id) {
-        List<CartDTO> cartDTOList = cartRepository.findAll(m_id);
+    public List<CartItemDTO> findAll(Long m_id) {
+        List<CartItemDTO> cartDTOList = cartRepository.findAll(m_id);
         return cartDTOList;
     }
 }

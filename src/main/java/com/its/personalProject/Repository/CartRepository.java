@@ -1,6 +1,7 @@
 package com.its.personalProject.Repository;
 
 import com.its.personalProject.DTO.CartDTO;
+import com.its.personalProject.DTO.CartItemDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,7 +18,7 @@ public class CartRepository {
         sql.insert("Cart.save",cartDTO);
     }
 
-    public List<CartDTO> findAll(Long m_id) {
+    public List<CartItemDTO> findAll(Long m_id) {
         return sql.selectList("Cart.findAll",m_id);
     }
 }
