@@ -48,7 +48,7 @@
                     <li><a href="/member/detail?m_id=${memberLogin.m_id}"><img src="../../../resources/img/mypage2.jpg" alt="" height="70px" width="70px"></a></li>
                     <li><a href="/dog/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/mypet4.jpg" alt="" height="70px" width="70px"></a></li>
                     <li><a href="/dog/save?m_id=${memberLogin.m_id}"><img src="../../../resources/img/petSignup.jpg" alt="" height="70px" width="70px"></a></li>
-                    <li><a href="#"><img src="../../../resources/img/cart.png" alt="" height="70px" width="70px"></a></li>
+                    <li><a href="/cart/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/cart.png" alt="" height="70px" width="70px"></a></li>
                     <li><a href="#"><img src="../../../resources/img/order2.jpg" alt="" height="70px" width="70px"></a></li>
                     <li><a href="/member/logout"><img src="../../../resources/img/logout.jpg" alt="" height="70px" width="70px"></a></li>
                     ${sessionScope.memberId}님 안녕하세요!
