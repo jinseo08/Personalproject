@@ -13,8 +13,8 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 ${itemDetail}<br>
-<a href="#" onclick="deleteCk()">글삭제</a>
-<form action="/cart/save" method="get" name="cartSubmit">
+<a href="#" onclick="deleteCk()">상품삭제</a>
+<form method="get" name="cartSubmit">
 <input type="hidden" name="i_id" value="${itemDetail.i_id}">
 <input type="hidden" name="m_id" value="${sessionScope.m_id}">
 <p>수량</p>
@@ -32,6 +32,7 @@ ${itemDetail}<br>
 </select>개
 <br>
 <a href="#" onclick="cartSave()">장바구니 담기</a>
+<a href="#" onclick="orderSave()">결제하기</a>
 </form>
 </body>
 <script>
@@ -45,8 +46,17 @@ ${itemDetail}<br>
     function cartSave(){
         cartResult = confirm("장바구니에 담으시겠습니까?");
         if(cartResult == true){
-                cartSubmit.submit();
+            cartSubmit.action ="/cart/save";
+            cartSubmit.submit();
             }
+    }
+
+    function orderSave(){
+        cartResult = confirm("결제 하시겠습니까?");
+        if(cartResult == true){
+            cartSubmit.action ="/order/save";
+            cartSubmit.submit();
+        }
     }
 
 </script>

@@ -34,12 +34,12 @@ public class MemberController {
         }
     }
 
-    @GetMapping("login")
+    @GetMapping("/login")
     public String login(){
         return "/member/login";
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public String login(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session){
         MemberDTO loginResult = memberService.login(memberDTO);
         if(loginResult != null) {
