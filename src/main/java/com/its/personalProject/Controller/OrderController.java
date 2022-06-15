@@ -44,8 +44,9 @@ public class OrderController {
     @PostMapping("/save")
     public String save(@ModelAttribute OrderDTO orderDTO){
         orderService.save(orderDTO);
-        return "/item/orderList";
+        return "redirect:/order/findAll?m_id=" +orderDTO.getM_id();
     }
+
 
     @GetMapping("/findAll")
     public String findAll(@RequestParam Long m_id,Model model){
@@ -54,5 +55,10 @@ public class OrderController {
         return "/item/orderList";
     }
 
-
+    @GetMapping("detail")
+    public String findById(@RequestParam Long o_id,Model model){
+        OrderItemDTO orderDTO = orderService.findById(o_id);
+        model.addAttribute("orderDetail",orderDTO);
+        return "/item/orderDetail";
+    }
 }

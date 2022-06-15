@@ -21,4 +21,8 @@ public class OrderRepository {
     public List<OrderItemDTO> findAll(Long m_id) {
         return sql.selectList("Order.findAll",m_id);
     }
+
+    public OrderItemDTO findById(Long o_id) {
+        return sql.selectOne("Order.findById",o_id);
+    }
 }

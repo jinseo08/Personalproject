@@ -31,7 +31,7 @@ ${itemDetail}<br>
     <option value="9">9</option>
     <option value="10">10</option>
 </select>개
-    총금액 <input type="text" name="totalPrice" id="totalPrice">
+    총금액 <input type="text" name="totalPrice" id="totalPrice" placeholder="수량을 선택해주세요">
 <br>
 <a href="#" onclick="cartSave()">장바구니 담기</a>
 <a href="#" onclick="orderSave()">주문하기</a>
