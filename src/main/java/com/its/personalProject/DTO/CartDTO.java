@@ -14,6 +14,6 @@ public class CartDTO {
     private Long m_id;
     private Long i_id;
     private int itemQTY;
-
+    private int totalPrice;
 
 }

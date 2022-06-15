@@ -17,8 +17,9 @@ ${itemDetail}<br>
 <form method="get" name="cartSubmit">
 <input type="hidden" name="i_id" value="${itemDetail.i_id}">
 <input type="hidden" name="m_id" value="${sessionScope.m_id}">
+<input type="text" name="itemPrice" id="itemPrice" value="${itemDetail.itemPrice}">
 <p>수량</p>
-<select name="itemQTY">
+<select name="itemQTY" id="itemQTY" onchange="priceCk()">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -30,9 +31,10 @@ ${itemDetail}<br>
     <option value="9">9</option>
     <option value="10">10</option>
 </select>개
+    총금액 <input type="text" name="totalPrice" id="totalPrice">
 <br>
 <a href="#" onclick="cartSave()">장바구니 담기</a>
-<a href="#" onclick="orderSave()">결제하기</a>
+<a href="#" onclick="orderSave()">주문하기</a>
 </form>
 </body>
 <script>
@@ -52,11 +54,20 @@ ${itemDetail}<br>
     }
 
     function orderSave(){
-        cartResult = confirm("결제 하시겠습니까?");
+        cartResult = confirm("주문 하시겠습니까?");
         if(cartResult == true){
-            cartSubmit.action ="/order/save";
+            let itemQTY1 = document.getElementById("itemQTY").value;
+            let totalPrice = document.getElementById("totalPrice").value;
+            console.log(itemQTY1)
+            cartSubmit.action ="/order/save?i_id=${itemDetail.i_id}&m_id=${sessionScope.m_id}&itemQTY="+itemQTY1+"&totalPrice="+totalPrice;
             cartSubmit.submit();
         }
+    }
+
+    function priceCk(){
+        let price = document.getElementById("itemPrice").value;
+        let itemQTY = document.getElementById("itemQTY").value;
+        document.getElementById("totalPrice").value = price * itemQTY;
     }
 
 </script>

@@ -22,6 +22,8 @@ public class CartItemDTO {
     private Long s_id;
     private Long m_id;
     private int itemQTY;
+    private int totalPrice;
+
 
 
 }

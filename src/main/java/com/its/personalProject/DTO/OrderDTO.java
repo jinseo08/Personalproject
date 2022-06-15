@@ -14,6 +14,8 @@ public class OrderDTO {
     private Long i_id;
     private Long s_id;
     private int itemQTY;
+    private int price;
     private String orderCreatedDate;
+    private int totalPrice;
 
 }
