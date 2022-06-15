@@ -11,5 +11,6 @@
         <typeAlias type="com.its.personalProject.DTO.CartDTO" alias="cart" />
         <typeAlias type="com.its.personalProject.DTO.CartItemDTO" alias="cartItem" />
         <typeAlias type="com.its.personalProject.DTO.OrderDTO" alias="order" />
+        <typeAlias type="com.its.personalProject.DTO.OrderItemDTO" alias="orderItem" />
     </typeAliases>
 </configuration>

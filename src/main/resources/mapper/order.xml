@@ -8,4 +8,7 @@
         insert into order_table(m_id,i_id,itemQTY,orderCreatedDate,totalPrice,price)
         values(#{m_id},#{i_id},#{itemQTY},now(),#{totalPrice},#{price})
     </insert>
+    <select id="findAll" parameterType="Long" resultType="orderItem">
+        select * from order_table o,item_table i where o.i_id=i.i_id and m_id=#{m_id}
+    </select>
 </mapper>

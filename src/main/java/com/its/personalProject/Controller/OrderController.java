@@ -3,6 +3,7 @@ package com.its.personalProject.Controller;
 import com.its.personalProject.DTO.ItemDTO;
 import com.its.personalProject.DTO.MemberDTO;
 import com.its.personalProject.DTO.OrderDTO;
+import com.its.personalProject.DTO.OrderItemDTO;
 import com.its.personalProject.Service.ItemService;
 import com.its.personalProject.Service.MemberService;
 import com.its.personalProject.Service.OrderService;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/order")
@@ -41,9 +44,15 @@ public class OrderController {
     @PostMapping("/save")
     public String save(@ModelAttribute OrderDTO orderDTO){
         orderService.save(orderDTO);
-        return "/item/order";
+        return "/item/orderList";
     }
 
+    @GetMapping("/findAll")
+    public String findAll(@RequestParam Long m_id,Model model){
+        List<OrderItemDTO> orderDTOList = orderService.findAll(m_id);
+        model.addAttribute("orderList",orderDTOList);
+        return "/item/orderList";
+    }
 
 
 }
