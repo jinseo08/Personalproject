@@ -36,8 +36,8 @@
     </div>
     <div class="gnb">
         <ul>
-            <li><a href="/board/paging">글목록</a></li>
-            <li><a href="/item/findAll">상품목록</a></li>
+            <li><a href="/board/paging">자랑하개</a></li>
+            <li><a href="/item/findAll">쇼핑하개</a></li>
             <c:choose>
                 <c:when test="${sessionScope.memberId eq 'admin'}">
                     <li><a href ="/member/findAll">회원목록</a></li>
@@ -57,7 +57,6 @@
                     <li><a href="/member/save">회원가입</a></li>
                     <li><a href="/member/save"><img src="../../../resources/img/signup.jpg" alt="" height="50px" width="50px"></a></li>
                     <li><a href="/member/login"><img src="../../../resources/img/login.jpg" alt="" height="50px" width="50px"></a></li>
-                    <li><a href="/member/login">로그인</a></li>
                 </c:otherwise>
             </c:choose>
         </ul>

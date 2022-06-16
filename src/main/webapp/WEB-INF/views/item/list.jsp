@@ -14,7 +14,11 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-<a href="/item/save">글작성</a>
+<c:choose>
+    <c:when test="${sessionScope.memberId eq 'admin'}">
+        <a href="/item/save">상품등록</a><br><br>
+    </c:when>
+</c:choose>
 <c:forEach var="item" items="${itemList}">
     <input type="hidden" value="${item.i_id}">
     상품이름 <a href="/item/detail?i_id=${item.i_id}">${item.itemName}</a><br>

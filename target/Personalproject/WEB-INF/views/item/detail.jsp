@@ -19,6 +19,7 @@ ${itemDetail}<br>
     <input type="text" name="itemPrice" id="itemPrice" value="${itemDetail.itemPrice}">
     <p>수량</p>
     <select name="itemQTY" id="itemQTY" onchange="priceCk()">
+        <option value="수량선택">수량선택</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -30,7 +31,7 @@ ${itemDetail}<br>
         <option value="9">9</option>
         <option value="10">10</option>
     </select>개
-        총금액 <input type="text" name="totalPrice" id="totalPrice" placeholder="수량을 선택해주세요">
+    총금액 <input type="text" name="totalPrice" id="totalPrice" placeholder="수량을 선택해주세요">
     <br>
     <a href="#" onclick="cartSave()">장바구니 담기</a>
     <a href="#" onclick="orderSave()">주문하기</a>
@@ -44,26 +45,35 @@ ${itemDetail}<br>
     <%--    }--%>
     <%--}--%>
 
-    function cartSave(){
+    function cartSave() {
         cartResult = confirm("장바구니에 담으시겠습니까?");
-        if(cartResult == true){
-            cartSubmit.action ="/cart/save";
-            cartSubmit.submit();
+        let itemQTY1 = document.getElementById("itemQTY").value;
+        if (cartResult == true) {
+            if (itemQTY1 == "수량선택") {
+                alert("수량을 선택해주세요")
+            } else {
+                cartSubmit.action = "/cart/save";
+                cartSubmit.submit();
             }
-    }
-
-    function orderSave(){
-        cartResult = confirm("주문 하시겠습니까?");
-        if(cartResult == true){
-            let itemQTY1 = document.getElementById("itemQTY").value;
-            let totalPrice = document.getElementById("totalPrice").value;
-            console.log(itemQTY1)
-            cartSubmit.action ="/order/save?i_id=${itemDetail.i_id}&m_id=${sessionScope.m_id}&itemQTY="+itemQTY1+"&totalPrice="+totalPrice;
-            cartSubmit.submit();
         }
     }
 
-    function priceCk(){
+    function orderSave() {
+        cartResult = confirm("주문 하시겠습니까?");
+        if (cartResult == true) {
+            let itemQTY1 = document.getElementById("itemQTY").value;
+            let totalPrice = document.getElementById("totalPrice").value;
+            if (itemQTY1 == "수량선택") {
+                alert("수량을 선택해주세요")
+            } else {
+                console.log(itemQTY1)
+                cartSubmit.action = "/order/save?i_id=${itemDetail.i_id}&m_id=${sessionScope.m_id}&itemQTY=" + itemQTY1 + "&totalPrice=" + totalPrice;
+                cartSubmit.submit();
+            }
+        }
+    }
+
+    function priceCk() {
         let price = document.getElementById("itemPrice").value;
         let itemQTY = document.getElementById("itemQTY").value;
         document.getElementById("totalPrice").value = price * itemQTY;
