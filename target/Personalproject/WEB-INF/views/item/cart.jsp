@@ -26,19 +26,8 @@
         판매상태 ${cart.itemStatus}
         <input type="text" name="totalPrice" value="${cart.totalPrice}">
         <input type="submit" value="주문하기">
-        <a href="#" onclick="deleteCk()">삭제</a>
+        <a href="/cart/delete?cart_id=${cart.s_id}&m_id=${sessionScope.m_id}">삭제</a>
     </form>
 </c:forEach>
 </body>
-<script>
-function deleteCk(){
-    result = confirm("삭제하시겠습니까?")
-    let s_id = document.getElementById("cart_id").value;
-    if(result == true){
-        <c:forEach var="cart" items="${cartList}">
-        location.href = "/cart/delete?s_id=${cart.s_id}&m_id=${sessionScope.m_id}"
-        </c:forEach>
-    }
-}
-</script>
 </html>

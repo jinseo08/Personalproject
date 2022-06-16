@@ -48,11 +48,11 @@ public class DogController {
     }
 
     @GetMapping("/delete")
-    public String delete(@RequestParam Long d_id, Model model){
+    public String delete(@RequestParam Long d_id,@RequestParam Long m_id){
         dogService.delete(d_id);
-        List<DogDTO> dogDTOList = dogService.findAll(d_id);
-        model.addAttribute("dog",dogDTOList);
-        return "redirect:/member/detail";
+        System.out.println(m_id);
+        return "redirect:/dog/findAll?m_id=" +m_id;
     }
+
 
 }

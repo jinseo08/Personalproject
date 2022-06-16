@@ -15,17 +15,10 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <c:forEach var="dog" items="${dogList}">
     회원번호 ${dog.m_id} <br>
-    반려견 번호 ${dog.d_id} <br>
+    반려견 번호
+    <input type="text" id="dog_id" value="${dog.d_id}"><br>
     반려견 이름 <a href="/dog/detail?d_id=${dog.d_id}">${dog.dogName}</a><br>
-    반려견 삭제 <a href="#" onclick="deleteCk()">삭제</a><br>
+    반려견 삭제 <a href="/dog/delete?d_id=${dog.d_id}&m_id=${sessionScope.m_id}" >삭제</a><br>
 </c:forEach>
 </body>
-<script>
-    function deleteCk(){
-        result = confirm("삭제하시겠습니까?")
-        if(result == true){
-            location.href = "/dog/delete?d_id=${dog.d_id}"
-        }
-    }
-</script>
 </html>
