@@ -16,7 +16,8 @@
 
 <c:forEach var="cart" items="${cartList}">
     <form action="/order/save">
-        장바구니번호 ${cart.s_id}
+        장바구니번호
+        <input type="text" id="cart_id" value="${cart.s_id}">
         <input type="text" name="m_id" value="${cart.m_id}">
         <input type="text" name="i_id" value="${cart.i_id}">
         <input type="text" name="itemQTY" value="${cart.itemQTY}">
@@ -25,7 +26,19 @@
         판매상태 ${cart.itemStatus}
         <input type="text" name="totalPrice" value="${cart.totalPrice}">
         <input type="submit" value="주문하기">
+        <a href="#" onclick="deleteCk()">삭제</a>
     </form>
 </c:forEach>
 </body>
+<script>
+function deleteCk(){
+    result = confirm("삭제하시겠습니까?")
+    let s_id = document.getElementById("cart_id").value;
+    if(result == true){
+        <c:forEach var="cart" items="${cartList}">
+        location.href = "/cart/delete?s_id=${cart.s_id}&m_id=${sessionScope.m_id}"
+        </c:forEach>
+    }
+}
+</script>
 </html>
