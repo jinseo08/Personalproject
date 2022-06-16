@@ -27,7 +27,7 @@
 <body>
 <div id="wrap">
     <div class="top_box">
-        <h1>입주댕댕이 : ${dog.dogName}</h1>
+        <h1>${dog.dogName}</h1>
     </div>
     <input type="hidden" name="d_id" value="${dog.d_id}">
     <p>반려견 이름</p>

@@ -11,7 +11,7 @@
     <title>Login</title>
     <style>
         h1{padding-bottom:20px;}
-        #wrap{font-size:0; letter-spacing:-4px; width:1000px; margin:0 auto; padding-top:100px;}
+        #wrap{font-size:0; letter-spacing:-4px; width:1000px; margin:0 auto; padding-top:30px;}
         #wrap .left_box{display:inline-block; vertical-align:middle; width:519px; margin-right:20px; height:700px; background:#fff9bd; border-radius:120px;}
         #wrap .left_box img{width:100%; padding-top:100px;}
         #wrap .right_box{display:inline-block; vertical-align:middle; width:461px; text-align:center;}
@@ -19,7 +19,7 @@
         #wrap .right_box input{width:80%; height:50px; border-radius:25px; box-shadow:5px 5px 10px rgba(0,0,0,0.2); border:0; padding:10px 20px; box-sizing:border-box; font-size:18px; letter-spacing:-0.025em;}
         #wrap .right_box input + input{margin-top:20px;}
         #wrap .right_box input.login{background:#fff9bd; margin-top:30px;}
-        #wrap .right_box .bot_box{margin-top:100px;}
+        #wrap .right_box .bot_box{margin-top:70px;}
         #wrap .right_box .center a{display:inline-block; width:80%; height:50px; border-radius:25px; text-align:center; font-size:18px; letter-spacing:-0.025em; background:#fff9bd; line-height:50px; box-shadow:5px 5px 10px rgba(0,0,0,0.2);}
     </style>
 </head>

@@ -8,13 +8,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>DogPage</title>
+    <title>MyPage</title>
+    <style>
+        body{background:#fff9bd}
+        #wrap{width:800px; margin:0 auto; background:#fff; border-radius:100px; padding:50px 20px; box-sizing:border-box;}
+        #wrap div + div{padding-top:10px;}
+        #wrap .top_box{text-align:center;}
+        #wrap .top_box img{max-width:40%;}
+        #wrap .bot_box{padding-left:120px;}
+        #wrap p{display:inline-block; margin-right:10px; vertical-align:middle;width:30%; font-weight:bold; font-size:17px;}
+        #wrap input{height:50px; border-radius:25px; border:0; padding:10px 20px; box-sizing:border-box; font-size:18px; letter-spacing:-0.025em; border:1px solid #aaa; width:50%; display:inline-block; vertical-align:middle;}
+        #wrap input.w10{width:16%;}
+        #wrap input[type="radio"]{width:3%;}
+        #wrap input.center{margin-left:120px; margin-top:30px;}
+        #wrap select{height:50px; border-radius:25px; border:0; padding:10px 20px; box-sizing:border-box; font-size:18px; letter-spacing:-0.025em; border:1px solid #aaa; width:16%; display:inline-block; vertical-align:middle;}
+    </style>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div id="wrap">
     <div class="top_box">
-        <h1>입주댕댕이 : ${dog.dogName}</h1>
+        <h1>${dog.dogName}</h1>
     </div>
     <input type="hidden" name="d_id" value="${dog.d_id}">
     <p>반려견 이름</p>

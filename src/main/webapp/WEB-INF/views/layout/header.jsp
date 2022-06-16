@@ -48,7 +48,6 @@
                 <c:when test="${sessionScope.memberId eq 'admin'}">
                     <li><a href ="/member/findAll">회원목록</a></li>
                     <li><a href ="/member/logout">로그아웃</a></li>
-                    관리자님 안녕하세요!
                 </c:when>
 <%--                <c:when test="${!empty sessionScope.memberId}">--%>
 <%--                    <li><a href="/member/detail?m_id=${memberLogin.m_id}"><img src="../../../resources/img/mypage2.jpg" alt="" height="70px" width="70px"></a></li>--%>
@@ -70,13 +69,12 @@
         <ul>
 <c:choose>
             <c:when test="${!empty sessionScope.memberId}">
-                <li><a href="/member/detail?m_id=${memberLogin.m_id}"><img src="../../../resources/img/mypage2.jpg" alt="" height="70px" width="70px"></a></li>
-                <li><a href="/dog/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/mypet4.jpg" alt="" height="70px" width="70px"></a></li>
-                <li><a href="/dog/save?m_id=${memberLogin.m_id}"><img src="../../../resources/img/petSignup.jpg" alt="" height="70px" width="70px"></a></li>
-                <li><a href="/cart/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/cart.png" alt="" height="70px" width="70px"></a></li>
-                <li><a href="/order/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/order2.jpg" alt="" height="70px" width="70px"></a></li>
-                <li><a href="/member/logout"><img src="../../../resources/img/logout.jpg" alt="" height="70px" width="70px"></a></li>
-                ${sessionScope.memberId}님 안녕하세요!
+                <li><a href="/member/detail?m_id=${memberLogin.m_id}"><img src="../../../resources/img/mypage2.jpg" alt=""></a>마이페이지</li>
+                <li><a href="/dog/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/mypet4.jpg" alt=""></a>마이펫페이지</li>
+                <li><a href="/dog/save?m_id=${memberLogin.m_id}"><img src="../../../resources/img/petSignup.jpg" alt="" ></a>반려견등록</li>
+                <li><a href="/cart/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/cart.png" alt="" ></a>장바구니</li>
+                <li><a href="/order/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/order2.jpg" alt=""></a>주문목록</li>
+                <li><a href="/member/logout"><img src="../../../resources/img/logout.jpg" alt="" ></a>로그아웃</li>
             </c:when>
             <c:otherwise>
                 <li><a href="/member/save"><img src="../../../resources/img/signup.jpg" alt="">회원가입</a></li>

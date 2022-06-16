@@ -12,7 +12,7 @@
     <title>DogFindAll</title>
     <style>
         body{position:relative; background:rgb(255,249,190)}
-        .fixed{position:fixed; left:20px; top:150px; width:300px; height:500px; overflow-y:auto; background:#fff; padding:20px; box-sizing:border-box;}
+        .fixed{position:fixed; left:20px; top:150px; width:300px; height:500px; overflow-y:auto; background:#fff; padding:25px 0 20px; box-sizing:border-box; border-radius:60px; text-align: center;}
         .fixed .box + .box{margin-top:20px}
         .fixed a.inline{display:inline-block;}
     </style>
