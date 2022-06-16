@@ -9,8 +9,14 @@
 <html>
 <head>
     <title>footer</title>
+    <style>
+        .copy{text-align:center; height:50px; background:#fff;}
+        .copy p{font-size:12px; letter-spacing:-0.025em; color:#222; font-weight:300; line-height:50px;}
+    </style>
 </head>
 <body>
-<p>COPYRIGHT ⓒJINSEO&MOZZI. ALL RIGHTS RESERVED</p>
+<div class="copy">
+    <p>COPYRIGHT ⓒJINSEO&MOZZI. ALL RIGHTS RESERVED</p>
+</div>
 </body>
 </html>

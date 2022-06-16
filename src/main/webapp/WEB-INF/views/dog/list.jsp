@@ -10,16 +10,28 @@
 <html>
 <head>
     <title>DogFindAll</title>
+    <style>
+        body{position:relative; background:rgb(255,249,190)}
+        .fixed{position:fixed; left:20px; top:150px; width:300px; height:500px; overflow-y:auto; background:#fff; padding:20px; box-sizing:border-box;}
+        .fixed .box + .box{margin-top:20px}
+        .fixed a.inline{display:inline-block;}
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-<c:forEach var="dog" items="${dogList}">
-    <input type="hidden" id="d_id${dog.d_id}" value="${dog.d_id}" name="d_id" value="${dog.d_id}">
-    <input type="button" value="${dog.dogName}" onclick="detail(${dog.d_id})">
-    반려견 이름 <a href="/dog/detail?d_id=${dog.d_id}">${dog.dogName}</a><br>
-    <a href="/dog/delete?d_id=${dog.d_id}&m_id=${sessionScope.m_id}" >삭제</a><br>
-</c:forEach>
+<div class="fixed">
+    <c:forEach var="dog" items="${dogList}">
+        <div class="box">
+            <input type="hidden" id="d_id${dog.d_id}" value="${dog.d_id}" name="d_id" value="${dog.d_id}">
+            반려견이름 :
+            <a href="#" onclick="detail(${dog.d_id})">${dog.dogName}</a><br>
+            <a href="/dog/detail?d_id=${dog.d_id}" class="inline">정보수정</a>
+            <a href="/dog/delete?d_id=${dog.d_id}&m_id=${sessionScope.m_id}" class="inline">삭제</a>
+        </div>
+    </c:forEach>
+</div>
+
 <div id="dogDetail">
 
 </div>

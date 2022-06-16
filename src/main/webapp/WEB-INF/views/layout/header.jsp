@@ -27,6 +27,12 @@
     #header .gnb{text-align:center;}
     #header .gnb ul li{margin-right:20px; display:inline-block}
     #header .gnb ul li a{font-size:24px; letter-spacing:-0.025em; color: #222222; line-height:120px; font-weight:bold; display:block;}
+    #header .login_box{position:absolute; right:20px; top:50%; transform: translateY(-50%);}
+    #header .login_box ul li{margin-right:20px; display:inline-block; text-align:center;}
+    #header .login_box ul li:last-of-type{margin-right:0;}
+    #header .login_box ul li img{display:block; margin:0 auto 5px; width:50px; height:50px; }
+    #header .login_box ul li a{font-size:16px; letter-spacing:-0.025em; color: #222222; font-weight:400; display:block;}
+
 </style>
 </head>
 <body>
@@ -44,21 +50,39 @@
                     <li><a href ="/member/logout">로그아웃</a></li>
                     관리자님 안녕하세요!
                 </c:when>
-                <c:when test="${!empty sessionScope.memberId}">
-                    <li><a href="/member/detail?m_id=${memberLogin.m_id}"><img src="../../../resources/img/mypage2.jpg" alt="" height="70px" width="70px"></a></li>
-                    <li><a href="/dog/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/mypet4.jpg" alt="" height="70px" width="70px"></a></li>
-                    <li><a href="/dog/save?m_id=${memberLogin.m_id}"><img src="../../../resources/img/petSignup.jpg" alt="" height="70px" width="70px"></a></li>
-                    <li><a href="/cart/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/cart.png" alt="" height="70px" width="70px"></a></li>
-                    <li><a href="/order/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/order2.jpg" alt="" height="70px" width="70px"></a></li>
-                    <li><a href="/member/logout"><img src="../../../resources/img/logout.jpg" alt="" height="70px" width="70px"></a></li>
-                    ${sessionScope.memberId}님 안녕하세요!
-                </c:when>
-                <c:otherwise>
-                    <li><a href="/member/save">회원가입</a></li>
-                    <li><a href="/member/save"><img src="../../../resources/img/signup.jpg" alt="" height="50px" width="50px"></a></li>
-                    <li><a href="/member/login"><img src="../../../resources/img/login.jpg" alt="" height="50px" width="50px"></a></li>
-                </c:otherwise>
+<%--                <c:when test="${!empty sessionScope.memberId}">--%>
+<%--                    <li><a href="/member/detail?m_id=${memberLogin.m_id}"><img src="../../../resources/img/mypage2.jpg" alt="" height="70px" width="70px"></a></li>--%>
+<%--                    <li><a href="/dog/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/mypet4.jpg" alt="" height="70px" width="70px"></a></li>--%>
+<%--                    <li><a href="/dog/save?m_id=${memberLogin.m_id}"><img src="../../../resources/img/petSignup.jpg" alt="" height="70px" width="70px"></a></li>--%>
+<%--                    <li><a href="/cart/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/cart.png" alt="" height="70px" width="70px"></a></li>--%>
+<%--                    <li><a href="/order/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/order2.jpg" alt="" height="70px" width="70px"></a></li>--%>
+<%--                    <li><a href="/member/logout"><img src="../../../resources/img/logout.jpg" alt="" height="70px" width="70px"></a></li>--%>
+<%--                    ${sessionScope.memberId}님 안녕하세요!--%>
+<%--                </c:when>--%>
+<%--                <c:otherwise>--%>
+<%--                    <li><a href="/member/save"><img src="../../../resources/img/signup.jpg" alt="" height="50px" width="50px"></a></li>--%>
+<%--                    <li><a href="/member/login"><img src="../../../resources/img/login.jpg" alt="" height="50px" width="50px"></a></li>--%>
+<%--                </c:otherwise>--%>
             </c:choose>
+        </ul>
+    </div>
+    <div class="login_box">
+        <ul>
+<c:choose>
+            <c:when test="${!empty sessionScope.memberId}">
+                <li><a href="/member/detail?m_id=${memberLogin.m_id}"><img src="../../../resources/img/mypage2.jpg" alt="" height="70px" width="70px"></a></li>
+                <li><a href="/dog/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/mypet4.jpg" alt="" height="70px" width="70px"></a></li>
+                <li><a href="/dog/save?m_id=${memberLogin.m_id}"><img src="../../../resources/img/petSignup.jpg" alt="" height="70px" width="70px"></a></li>
+                <li><a href="/cart/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/cart.png" alt="" height="70px" width="70px"></a></li>
+                <li><a href="/order/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/order2.jpg" alt="" height="70px" width="70px"></a></li>
+                <li><a href="/member/logout"><img src="../../../resources/img/logout.jpg" alt="" height="70px" width="70px"></a></li>
+                ${sessionScope.memberId}님 안녕하세요!
+            </c:when>
+            <c:otherwise>
+                <li><a href="/member/save"><img src="../../../resources/img/signup.jpg" alt="">회원가입</a></li>
+                <li><a href="/member/login"><img src="../../../resources/img/login.jpg" alt="">로그인</a></li>
+            </c:otherwise>
+</c:choose>
         </ul>
     </div>
 </div>
