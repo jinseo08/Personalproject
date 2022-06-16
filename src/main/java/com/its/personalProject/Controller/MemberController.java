@@ -25,7 +25,6 @@ public class MemberController {
 
     @PostMapping("/save")
     public String save(@ModelAttribute MemberDTO memberDTO){
-        System.out.println("보내기전 memberDTO = " + memberDTO);
         boolean saveResult = memberService.save(memberDTO);
         if(saveResult){
             return "/member/login";

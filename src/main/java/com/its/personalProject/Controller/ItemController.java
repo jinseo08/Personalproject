@@ -42,11 +42,11 @@ public class ItemController {
         return "/item/detail";
     }
 
-    @GetMapping("/delete")
-    public String delete(@RequestParam Long i_id){
-        itemService.delete(i_id);
-        return "redirect:/item/findAll";
-    }
+//    @GetMapping("/delete")
+//    public String delete(@RequestParam Long i_id){
+//        itemService.delete(i_id);
+//        return "redirect:/item/findAll";
+//    }
 
 
 }

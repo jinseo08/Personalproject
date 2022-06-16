@@ -32,7 +32,6 @@ public class OrderController {
         model.addAttribute("item",itemDTO);
         // 결제하기 창에 보여줄 회원 정보 가져오기
         MemberDTO memberDTO = memberService.findById(m_id);
-        System.out.println("m_id = " + m_id + "memberDTO = " + memberDTO);
         model.addAttribute("member",memberDTO);
         // 상품수량 모델로 넘겨주기
         model.addAttribute("itemQTY",itemQTY);

@@ -38,7 +38,7 @@ public class ItemService {
         return itemDTO;
     }
 
-    public void delete(Long i_id) {
-        itemRepository.delete(i_id);
-    }
+//    public void delete(Long i_id) {
+//        itemRepository.delete(i_id);
+//    }
 }

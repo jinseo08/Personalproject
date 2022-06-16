@@ -22,4 +22,8 @@ public class CartService {
         List<CartItemDTO> cartDTOList = cartRepository.findAll(m_id);
         return cartDTOList;
     }
+
+    public void delete(Long s_id) {
+        cartRepository.delete(s_id);
+    }
 }

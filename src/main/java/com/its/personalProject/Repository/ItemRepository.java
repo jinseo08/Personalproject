@@ -26,7 +26,7 @@ public class ItemRepository {
         return sql.selectOne("Item.findById",i_id);
     }
 
-    public void delete(Long i_id) {
-        sql.delete("Item.delete",i_id);
-    }
+//    public void delete(Long i_id) {
+//        sql.delete("Item.delete",i_id);
+//    }
 }

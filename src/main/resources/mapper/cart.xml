@@ -11,4 +11,7 @@
     <select id="findAll" resultType="cartItem">
         select * from shopping_cart_table,item_table where shopping_cart_table.i_id=item_table.i_id and shopping_cart_table.m_id=#{m_id}
     </select>
+    <delete id="delete" parameterType="Long">
+        delete from shopping_cart_table where s_id=#{s_id}
+    </delete>
 </mapper>
