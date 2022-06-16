@@ -46,7 +46,6 @@ ${member}
         }, function (rsp) {
             if (rsp.success) {
                 alert("주문이 완료 되었습니다")
-                location.href = '/order/findAll?m_id=${sessionScope.m_id}';
                 orderSubmit.submit();
             } else {
                 var msg = '결제에 실패하였습니다.';

@@ -39,12 +39,20 @@ public class DogController {
         return "/dog/list";
     }
 
-
+    // 반려견 리스트에서 이름눌렀을때 나오는 상세페이지
     @GetMapping("/detail")
     public String findById(@RequestParam Long d_id, Model model){
         DogDTO dogDTO = dogService.findById(d_id);
         model.addAttribute("dog",dogDTO);
         return "/dog/dogPage";
+    }
+
+    //반려견 리스트에서 ajax로 html 페이지 넘겨주기
+    @GetMapping("/detail2")
+    public String findById2(@RequestParam Long d_id, Model model){
+        DogDTO dogDTO = dogService.findById(d_id);
+        model.addAttribute("dog",dogDTO);
+        return "/dog/dogPage2";
     }
 
     @GetMapping("/delete")
