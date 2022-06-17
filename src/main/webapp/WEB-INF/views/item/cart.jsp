@@ -41,15 +41,15 @@
         </div>
         <div class="box price">
             <span>금액</span>
-            <p>${cart.itemPrice}</p>
+            <p>${cart.itemPrice}원</p>
         </div>
         <div class="box qty">
             <span>수량</span>
-            <p>${cart.itemQTY}</p>
+            <p>${cart.itemQTY}개</p>
         </div>
         <div class="box to_price">
             <span>총 금액</span>
-            <p>${cart.totalPrice}</p>
+            <p>${cart.totalPrice}원</p>
         </div>
         <div class="box">
 <%--            <input type="submit" value="주문하기">--%>

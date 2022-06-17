@@ -12,11 +12,23 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-${itemDetail}<br>
+
 <form method="get" name="cartSubmit">
     <input type="hidden" name="i_id" value="${itemDetail.i_id}">
     <input type="hidden" name="m_id" value="${sessionScope.m_id}">
-    <input type="text" name="itemPrice" id="itemPrice" value="${itemDetail.itemPrice}">
+    <input type="hidden" name="itemPrice" id="itemPrice" value="${itemDetail.itemPrice}">
+    <input type="hidden" name="totalPrice" id="totalPrice">
+
+    <p>${itemDetail.itemName}</p>
+    <p>${itemDetail.itemPrice}</p>
+    <p>${itemDetail.itemCategory}</p>
+    <p>${itemDetail.itemTitle}</p>
+    <p>${itemDetail.itemContents}</p>
+
+    <p><img src="${pageContext.request.contextPath}/upload/${itemDetail.itemThumbnailName}" alt="이미지가없습니다"></p>
+    <p>${itemDetail.itemStatus}</p>
+    <p><img src="${pageContext.request.contextPath}/upload/${itemDetail.itemFileName}" alt="이미지가없습니다"></p>
+
     <p>수량</p>
     <select name="itemQTY" id="itemQTY" onchange="priceCk()">
         <option value="수량선택">수량선택</option>
@@ -31,8 +43,6 @@ ${itemDetail}<br>
         <option value="9">9</option>
         <option value="10">10</option>
     </select>개
-    총금액 <input type="text" name="totalPrice" id="totalPrice" placeholder="수량을 선택해주세요">
-    <br>
     <a href="#" onclick="cartSave()">장바구니 담기</a>
     <a href="#" onclick="orderSave()">주문하기</a>
 </form>

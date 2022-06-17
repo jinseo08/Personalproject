@@ -18,12 +18,18 @@ public class ItemService {
 
     public void save(ItemDTO itemDTO) throws IOException {
         MultipartFile itemThumbnail = itemDTO.getItemThumbnail();
+        MultipartFile itemFile = itemDTO.getItemFile();
         String itemThumbnailName = itemThumbnail.getOriginalFilename();
+        String itemFileName = itemFile.getOriginalFilename();
         itemThumbnailName = System.currentTimeMillis() + "-" + itemThumbnailName;
+        itemFileName = System.currentTimeMillis()+"-"+itemFileName;
         itemDTO.setItemThumbnailName(itemThumbnailName);
+        itemDTO.setItemFileName(itemFileName);
         String savePath = "C:\\spring_img\\" + itemThumbnailName;
+        String savePath2 = "C:\\spring_img\\" + itemFileName;
         if(!itemThumbnail.isEmpty()){
             itemThumbnail.transferTo(new File(savePath));
+            itemFile.transferTo(new File(savePath2));
         }
         itemRepository.save(itemDTO);
     }

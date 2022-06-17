@@ -19,5 +19,7 @@ public class ItemDTO {
     private String itemThumbnailName;
     private String itemStatus;
     private MultipartFile itemThumbnail;
+    private String itemFileName;
+    private MultipartFile itemFile;
 
 }

@@ -23,7 +23,7 @@
         .prod_list ul li .img_box img{position:absolute; left:0; top:0; width:100%; height:100%;}
         .prod_list ul li .txt_box{margin-top:20px; padding:20px; box-sizing:border-box;}
         .prod_list ul li .txt_box p{font-size:24px; letter-spacing:-0.025em; color:#222; font-weight:bold; padding-bottom:15px; margin:0}
-        .prod_list ul li .txt_box span{font-size:18px; letter-spacing:-0.025em; color:#666; font-weight:400; display:block;  min-height:51px}
+        .prod_list ul li .txt_box span{font-size:18px; letter-spacing:-0.025em; color:#666; font-weight:400; display:block;  min-height:51px; word-break:keep-all;}
         .prod_list ul li .txt_box span.price{padding-top:10px; min-height:auto}
         .prod_list ul li .txt_box span.cate{position:absolute; right:20px; bottom:0; min-height:auto}
     </style>
