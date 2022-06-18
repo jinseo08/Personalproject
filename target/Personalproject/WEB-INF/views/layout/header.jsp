@@ -47,7 +47,6 @@
             <c:choose>
                 <c:when test="${sessionScope.memberId eq 'admin'}">
                     <li><a href ="/member/findAll">회원목록</a></li>
-                    <li><a href ="/member/logout">로그아웃</a></li>
                 </c:when>
 <%--                <c:when test="${!empty sessionScope.memberId}">--%>
 <%--                    <li><a href="/member/detail?m_id=${memberLogin.m_id}"><img src="../../../resources/img/mypage2.jpg" alt="" height="70px" width="70px"></a></li>--%>
@@ -68,6 +67,9 @@
     <div class="login_box">
         <ul>
 <c:choose>
+        <c:when test="${sessionScope.memberId eq 'admin'}">
+            <li><a href="/member/logout"><img src="../../../resources/img/logout.jpg" alt="" ></a>로그아웃</li>
+        </c:when>
             <c:when test="${!empty sessionScope.memberId}">
                 <li><a href="/member/detail?m_id=${memberLogin.m_id}"><img src="../../../resources/img/mypage2.jpg" alt=""></a>마이페이지</li>
                 <li><a href="/dog/findAll?m_id=${sessionScope.m_id}"><img src="../../../resources/img/mypet4.jpg" alt=""></a>마이펫페이지</li>

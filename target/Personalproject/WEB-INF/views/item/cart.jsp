@@ -26,7 +26,7 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 
 <c:forEach var="cart" items="${cartList}">
-    <form action="/order/save">
+    <form action="/order/save" name="cartForm">
         <input type="hidden" id="cart_id" value="${cart.s_id}">
         <input type="hidden" name="m_id" value="${cart.m_id}">
         <input type="hidden" name="i_id" value="${cart.i_id}">
@@ -36,7 +36,7 @@
             <img src="${pageContext.request.contextPath}/upload/${cart.itemThumbnailName}" alt="이미지가없습니다">
         </div>
         <div class="box tit">
-            <span>이름</span>
+            <span>상품명</span>
             <p><a href="/item/detail?i_id=${cart.i_id}">${cart.itemName}</a></p>
         </div>
         <div class="box price">
@@ -52,12 +52,16 @@
             <p>${cart.totalPrice}원</p>
         </div>
         <div class="box">
-<%--            <input type="submit" value="주문하기">--%>
-            <a href="#">주문하기</a>
+            <a href="#" onclick="cartSubmit()">주문하기</a>
             <a href="/cart/delete?cart_id=${cart.s_id}&m_id=${sessionScope.m_id}">삭제</a>
         </div>
 <%--        판매상태 ${cart.itemStatus}--%>
     </form>
 </c:forEach>
 </body>
+<script>
+    function cartSubmit(){
+        cartForm.submit();
+    }
+</script>
 </html>

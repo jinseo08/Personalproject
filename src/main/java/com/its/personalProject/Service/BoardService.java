@@ -74,4 +74,15 @@ public class BoardService {
     public void delete(Long b_id) {
         boardRepository.delete(b_id);
     }
+
+    public List<BoardDTO> search(String searchType, String searchText) {
+        Map<String,String> searchParam = new HashMap<>();
+        searchParam.put("type",searchType);
+        searchParam.put("text",searchText);
+        List<BoardDTO> boardDTOList = boardRepository.search(searchParam);
+        return boardDTOList;
+    }
+
 }
+
+

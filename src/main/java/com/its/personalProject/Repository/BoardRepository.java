@@ -34,4 +34,8 @@ public class BoardRepository {
     public void delete(Long b_id) {
         sql.delete("Board.delete",b_id);
     }
+
+    public List<BoardDTO> search(Map<String, String> searchParam) {
+        return sql.selectList("Board.search",searchParam);
+    }
 }

@@ -10,16 +10,50 @@
 <html>
 <head>
     <title>OrderList</title>
+    <style>
+        p{margin:0}
+        form{width:1000px; margin:0 auto;}
+        form + form{padding-top:30px;}
+        .box{display:inline-block; vertical-align:middle; width:16%; text-align:center;}
+        .box span{display:block; font-size:16px; color:#aaa; margin-bottom:10px;}
+        .box img{width:120px; height:120px;}
+        .box a{display:block;}
+        .box a + a{margin-top:10px;}
+        .box.tit p{font-size:24px; color:#222; font-weight:bold;}
+    </style>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <c:forEach var="order" items="${orderList}">
-    주문번호 <a href="/order/detail?o_id=${order.o_id}"> ${order.o_id} </a>
-    회원번호 ${order.m_id}
-    상품번호 ${order.i_id}
-    총금액 ${order.totalPrice}
-    주문시간 ${order.orderCreatedDate}<br>
-
+<%--    주문번호 <a href="/order/detail?o_id=${order.o_id}"> ${order.o_id} </a>--%>
+<%--    회원번호 ${order.m_id}--%>
+<%--    상품번호 ${order.i_id}--%>
+<%--    총금액 ${order.totalPrice}--%>
+<%--    주문시간 ${order.orderCreatedDate}<br>--%>
+<%--    ${order.itemThumbnailName}--%>
+<%--    <div class="box">--%>
+<%--        <img src="${pageContext.request.contextPath}/upload/${order.itemThumbnailName}" alt="이미지가없습니다">--%>
+<%--    </div>--%>
+    <div class="box tit">
+        <span>상품명</span>
+        <p><a href="/item/detail?i_id=${order.i_id}">${order.itemName}</a></p>
+    </div>
+    <div class="box price">
+        <span>금액</span>
+        <p>${order.itemPrice}원</p>
+    </div>
+    <div class="box qty">
+        <span>수량</span>
+        <p>${order.itemQTY}개</p>
+    </div>
+    <div class="box to_price">
+        <span>총 금액</span>
+        <p>${order.totalPrice}원</p>
+    </div>
+    <div class="box Date">
+        <span>주문시간</span>
+        <p>${order.orderCreatedDate}</p>
+    </div>
 </c:forEach>
 </body>
 </html>

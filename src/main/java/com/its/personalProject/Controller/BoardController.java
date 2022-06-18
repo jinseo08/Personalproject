@@ -70,5 +70,11 @@ public class BoardController {
         return "redirect:/board/paging";
     }
 
+    @GetMapping("/search")
+    public String search(@RequestParam String searchType,@RequestParam String searchText, Model model){
+        List<BoardDTO> boardDTOList = boardService.search(searchType,searchText);
+        model.addAttribute("boardList",boardDTOList);
+        return "/board/list";
+    }
 
 }

@@ -23,8 +23,9 @@
         <option value="사료">사료</option>
         <option value="간식">간식</option>
         <option value="장난감">장난감</option>
+        <option value="리빙">리빙</option>
     </select>
-    <div id="categoryResult" style="color: red">카레고리를 선택해주세요</div>
+    <div id="categoryResult" style="color: red">카테고리를 선택해주세요</div>
     <p>상품간단소개</p>
     <input type="text" name="itemTitle" placeholder="상품간단소개">
     <p>상품상세내용</p>
@@ -39,6 +40,7 @@
         <option value="판매종료">판매종료</option>
     </select>
     <div id="statusResult" style="color:red;">상품상태를 선택해주세요</div>
+    <input type="file" name="itemFile">
     <input type="button" value="상품등록" onclick="submitResult()">
 </form>
 </body>
