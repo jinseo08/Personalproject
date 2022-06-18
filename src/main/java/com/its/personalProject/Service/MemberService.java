@@ -52,4 +52,13 @@ public class MemberService {
     public void delete(Long m_id) {
         memberRepository.delete(m_id);
     }
+
+    public boolean update(MemberDTO memberDTO) {
+        int result = memberRepository.update(memberDTO);
+        if(result >0 ){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

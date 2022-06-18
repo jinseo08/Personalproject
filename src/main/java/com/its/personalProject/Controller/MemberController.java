@@ -94,4 +94,16 @@ public class MemberController {
         return "redirect:/member/findAll";
     }
 
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO) {
+        System.out.println("MemberController.update");
+        System.out.println("memberDTO = " + memberDTO);
+        boolean result = memberService.update(memberDTO);
+        if(result){
+            return "redirect:/member/detail?m_id="+memberDTO.getM_id();
+        }else {
+            return "index";
+        }
+    }
+
 }

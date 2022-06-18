@@ -14,7 +14,16 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-글리스트
+<form action="/board/search">
+    <select name="searchType">
+        <option value="boardTitle">제목</option>
+        <option value="memberId">작성자</option>
+        <option value="dogName">반려견</option>
+    </select>
+    <input type="text" name="searchText" placeholder="검색어 입력">
+    <input type="submit" value="검색">
+</form>
+<a href="/board/paging">글 전체조회</a>
 <table class="table table-striped">
     <tr>
         <th>글번호</th>

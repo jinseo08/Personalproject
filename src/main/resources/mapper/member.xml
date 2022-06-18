@@ -23,4 +23,7 @@
     <delete id="delete" parameterType="Long">
         delete from member_table where m_id =#{m_id}
     </delete>
+    <update id="update" parameterType="member">
+        update member_table set memberEmail =#{memberEmail},memberMobile=#{memberMobile},memberPostCode=#{memberPostCode},memberAddress=#{memberAddress},memberDetailAddress=#{memberDetailAddress},memberExtraAddress=#{memberExtraAddress} where m_id = #{m_id}
+    </update>
 </mapper>
