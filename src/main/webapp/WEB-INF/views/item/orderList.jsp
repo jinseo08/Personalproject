@@ -34,7 +34,7 @@
 <%--    <div class="box">--%>
 <%--        <img src="${pageContext.request.contextPath}/upload/${order.itemThumbnailName}" alt="이미지가없습니다">--%>
 <%--    </div>--%>
-    <div class="box tit">
+    <div class="box">
         <span>상품명</span>
         <p><a href="/item/detail?i_id=${order.i_id}">${order.itemName}</a></p>
     </div>
@@ -50,7 +50,7 @@
         <span>총 금액</span>
         <p>${order.totalPrice}원</p>
     </div>
-    <div class="box Date">
+    <div class="box">
         <span>주문시간</span>
         <p>${order.orderCreatedDate}</p>
     </div>

@@ -41,8 +41,6 @@ public class MemberRepository {
     }
 
     public int update(MemberDTO memberDTO) {
-        System.out.println("MemberRepository.update");
-        System.out.println("memberDTO = " + memberDTO);
         return sql.update("Member.update",memberDTO);
     }
 }

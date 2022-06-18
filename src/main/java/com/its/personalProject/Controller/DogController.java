@@ -62,5 +62,17 @@ public class DogController {
         return "redirect:/dog/findAll?m_id=" +m_id;
     }
 
+    @PostMapping("/update")
+    public String update(@ModelAttribute DogDTO dogDTO,HttpSession session){
+        boolean result = dogService.update(dogDTO);
+        Long m_id = (Long) session.getAttribute("m_id");
+        if(result){
+//            return "redirect:/dog/detail?d_id="+dogDTO.getD_id();
+           return  "redirect:/dog/findAll?m_id=" +m_id;
+        }else {
+            return "index";
+        }
+    }
+
 
 }

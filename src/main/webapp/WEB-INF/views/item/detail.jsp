@@ -27,8 +27,6 @@
 
     <p><img src="${pageContext.request.contextPath}/upload/${itemDetail.itemThumbnailName}" alt="이미지가없습니다"></p>
     <p>${itemDetail.itemStatus}</p>
-    <p><img src="${pageContext.request.contextPath}/upload/${itemDetail.itemFileName}" alt="이미지가없습니다"></p>
-
     <p>수량</p>
     <select name="itemQTY" id="itemQTY" onchange="priceCk()">
         <option value="수량선택">수량선택</option>
@@ -45,6 +43,7 @@
     </select>개
     <a href="#" onclick="cartSave()">장바구니 담기</a>
     <a href="#" onclick="orderSave()">주문하기</a>
+    <p><img src="${pageContext.request.contextPath}/upload/${itemDetail.itemFileName}" alt="이미지가없습니다"></p>
 </form>
 </body>
 <script>

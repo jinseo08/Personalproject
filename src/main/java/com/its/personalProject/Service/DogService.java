@@ -42,4 +42,12 @@ public class DogService {
         dogRepository.delete(d_id);
     }
 
+    public boolean update(DogDTO dogDTO) {
+        int result = dogRepository.update(dogDTO);
+        if(result >0 ){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

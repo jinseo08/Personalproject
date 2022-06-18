@@ -30,4 +30,7 @@ public class DogRepository {
     }
 
 
+    public int update(DogDTO dogDTO) {
+        return sql.update("Dog.update",dogDTO);
+    }
 }
