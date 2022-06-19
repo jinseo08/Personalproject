@@ -30,21 +30,36 @@
     <div class="top_box">
         <h1>${dog.dogName}</h1>
     </div>
-    <input type="hidden" name="d_id" value="${dog.d_id}">
-    <p>반려견 이름</p>
-    <input type="text" name="dogName" value="${dog.dogName}">
-    <p>반려경 생년월일</p>
-    <input type="text" name="dogDateBirth" value="${dog.dogDateBirth}">
-    <p>반려견 입양날</p>
-    <input type="text" name="dogDayWeMet" value="${dog.dogDayWeMet}">
-    <p>반려견 성별</p>
-    <input type="text" name="dogGender" value="${dog.dogGender}">
-    <p>중성화 유무</p>
-    <input type="text" name="dogGenderCk" value="${dog.dogGenderCk}">
-    <p>프로필 사진</p>
-    <img src="${pageContext.request.contextPath}/upload/${dog.dogProfileName}" alt="이미지가없습니다" height="350" width="350">
-    <p>강아지 소개말</p>
-    <input type="text" name="dogContents" value="${dog.dogContents}">
+    <form action="/dog/update" method="post" enctype="multipart/form-data" name="dogUpdateForm">
+        <input type="hidden" name="d_id" value="${dog.d_id}">
+        <p>반려견 이름</p>
+        <input type="text" name="dogName" value="${dog.dogName}">
+        <p>반려경 생년월일</p>
+        <input type="text" name="dogDateBirth" value="${dog.dogDateBirth}" readonly>
+        <p>반려견 입양날</p>
+        <input type="text" name="dogDayWeMet" value="${dog.dogDayWeMet}" readonly>
+        <p>반려견 성별</p>
+        <input type="text" name="dogGender" value="${dog.dogGender}" readonly>
+        <div>
+        <p>중성화 유무</p>
+        <lable>
+            <input type="radio" name="dogGenderCk" value="유" checked>유
+            <input type="radio" name="dogGenderCk" value="무">무
+        </lable>
+        </div>
+        <p>프로필 사진</p>
+        <img src="${pageContext.request.contextPath}/upload/${dog.dogProfileName}" alt="이미지가없습니다" height="350" width="350">
+        <p>강아지 소개말</p>
+        <input type="text" name="dogContents" value="${dog.dogContents}">
+        <input type="button" value="수정" onclick="dogSubmit()">
+    </form>
 </div>
 </body>
+<script>
+    function dogSubmit(){
+        dogGenderCk = document.getElementById("dogGenderCk").value;
+            alert("정보수정 완료")
+            dogUpdateForm.submit();
+    }
+</script>
 </html>

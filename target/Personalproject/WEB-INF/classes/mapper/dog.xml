@@ -16,4 +16,7 @@
     <delete id="delete" parameterType="Long">
         delete from dog_table where d_id=#{d_id}
     </delete>
+    <update id="update" parameterType="dog">
+        update dog_table set dogGenderCk=#{dogGenderCk},dogContents=#{dogContents} where d_id = #{d_id}
+    </update>
 </mapper>
